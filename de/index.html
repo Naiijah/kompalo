@@ -1,0 +1,874 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kompalo — Amazon-Preise in 8 europäischen Ländern vergleichen</title>
+<meta name="description" content="Vergleiche Amazon-Preise in 8 europäischen Ländern (Deutschland, Frankreich, Italien, Spanien, Niederlande, Schweden, Polen, Großbritannien) und finde mit einer Suche den besten Preis. Kostenlos, ohne Anmeldung, stündlich aktualisiert." />
+<meta name="robots" content="index,follow" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Kompalo — der beste Amazon-Preis, überall in Europa" />
+<meta property="og:description" content="Ein Produkt, acht europäische Amazon-Marktplätze, der beste Preis. Kostenlos und ohne Anmeldung." />
+<meta property="og:locale" content="de_DE" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Kompalo — der beste Amazon-Preis, überall in Europa" />
+<meta name="twitter:description" content="Ein Produkt, acht europäische Amazon-Marktplätze, der beste Preis. Kostenlos und ohne Anmeldung." />
+<link rel="canonical" href="https://naiijah.github.io/kompalo/de/" />
+<meta property="og:url" content="https://naiijah.github.io/kompalo/de/" />
+<!-- hreflang: language alternates (generated pages live in /de/, /es/, … ) -->
+<link rel="alternate" hreflang="x-default" href="https://naiijah.github.io/kompalo/" />
+<link rel="alternate" hreflang="fr" href="https://naiijah.github.io/kompalo/" />
+<link rel="alternate" hreflang="en" href="https://naiijah.github.io/kompalo/en/" />
+<link rel="alternate" hreflang="de" href="https://naiijah.github.io/kompalo/de/" />
+<link rel="alternate" hreflang="it" href="https://naiijah.github.io/kompalo/it/" />
+<link rel="alternate" hreflang="es" href="https://naiijah.github.io/kompalo/es/" />
+<link rel="alternate" hreflang="nl" href="https://naiijah.github.io/kompalo/nl/" />
+<link rel="alternate" hreflang="sv" href="https://naiijah.github.io/kompalo/sv/" />
+<link rel="alternate" hreflang="pl" href="https://naiijah.github.io/kompalo/pl/" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,900&family=Hanken+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<!-- SVG country flags (Windows doesn't render flag emoji) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css" />
+<style>
+  :root{
+    --paper:#f3eee3;--paper-2:#ece4d5;--panel:#fbf8f1;--panel-2:#f7f1e6;
+    --ink:#1b1714;--ink-soft:#6a5f54;--line:#d9cfbd;
+    --vermilion:#df4324;--vermilion-deep:#b8331a;--vermilion-tint:#fbe9e2;
+    --emerald:#1d7355;--gold:#c98a2b;--shadow:18px 20px 0 rgba(27,23,20,.06);--r:14px;
+    --nav-bg:rgba(243,238,227,.88);--imgbg:#fff;
+  }
+  html[data-theme="dark"]{
+    --paper:#141210;--paper-2:#1c1915;--panel:#211c16;--panel-2:#2a241c;
+    --ink:#fcfaf5;--ink-soft:#cdc3b2;--line:#3f382e;
+    --vermilion:#f0603f;--vermilion-deep:#df4324;--vermilion-tint:#3a251c;
+    --emerald:#34a47b;--gold:#d2a24e;--shadow:18px 20px 0 rgba(0,0,0,.3);
+    --nav-bg:rgba(18,16,12,.92);--imgbg:#211c16;
+  }
+  /* dark: product image tile blends with the card (no light block), and the
+     multiply blend (which needs a light tile) is turned off so photos show */
+  html[data-theme="dark"] .cimg-top img{mix-blend-mode:normal}
+  /* dark: social logos light/high-contrast by default, brand colours on hover */
+  html[data-theme="dark"] .sh-wa svg,html[data-theme="dark"] .sh-fb svg,html[data-theme="dark"] .sh-x svg,html[data-theme="dark"] .sh-tg svg{filter:grayscale(1) brightness(2) opacity(.85)}
+  html[data-theme="dark"] .sh-wa:hover svg,html[data-theme="dark"] .sh-fb:hover svg,html[data-theme="dark"] .sh-tg:hover svg{filter:none}
+  /* X logo is black → invert to white in dark mode (its real dark-bg colour), both states */
+  html[data-theme="dark"] .sh-x svg{filter:invert(1) opacity(.85)}
+  html[data-theme="dark"] .sh-x:hover svg{filter:invert(1)}
+  body{transition:background-color .25s ease,color .25s ease}
+  *{box-sizing:border-box;margin:0;padding:0}
+  button{color:inherit}a{color:inherit}
+  html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;scroll-behavior:smooth}
+  body{font-family:'Hanken Grotesk',system-ui,sans-serif;color:var(--ink);background:var(--paper);
+    background-image:radial-gradient(circle at 10% -12%,rgba(223,67,36,.08),transparent 42%),radial-gradient(circle at 94% 2%,rgba(29,115,85,.07),transparent 40%);
+    min-height:100vh;line-height:1.5;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E")}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  .nav{position:sticky;top:0;z-index:30;background:var(--nav-bg);backdrop-filter:blur(10px);border-bottom:1.5px solid var(--ink)}
+  .nav-in{max-width:1180px;margin:0 auto;padding:13px 28px;display:flex;align-items:center;gap:20px;position:relative}
+  .logo{display:flex;align-items:center;gap:10px;background:none;border:0;cursor:pointer;padding:0}
+  .logo .mark{width:34px;height:34px;border-radius:9px;background:var(--vermilion);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:900;font-size:20px;font-style:italic;box-shadow:3px 3px 0 var(--ink)}
+  .logo .lw{font-family:'Fraunces',serif;font-weight:900;font-size:23px;letter-spacing:-.02em}
+  .logo .lw .e{color:var(--vermilion);font-style:italic;font-weight:500}
+  .nav-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;gap:6px}
+  .navlink{position:relative;display:flex;align-items:center;gap:7px;background:none;border:0;cursor:pointer;padding:9px 14px;border-radius:9px;font-family:'Hanken Grotesk',sans-serif;font-weight:600;font-size:15px;color:var(--ink-soft);transition:.16s}
+  .navlink:hover{background:var(--panel-2);color:var(--ink)}
+  .navlink.active{color:var(--vermilion)}
+  .navlink svg{width:17px;height:17px}
+  .nav-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+  .userbox{display:flex;align-items:center;gap:9px}
+  .uavatar{width:32px;height:32px;border-radius:50%;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:700;font-size:14px}
+  #userName{font-weight:600;font-size:14px}
+  .locale-btn{display:flex;align-items:center;gap:7px;border:1.5px solid var(--line);background:var(--panel);cursor:pointer;padding:8px 12px;border-radius:9px;font-family:'Spline Sans Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--ink);transition:.16s;white-space:nowrap}
+  .locale-btn:hover{border-color:var(--ink)}
+  .locale-btn .gmini{width:14px;height:14px;flex:none;color:var(--ink-soft)}
+  .icon-btn{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--line);background:var(--panel);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.16s;position:relative}
+  .icon-btn:hover{border-color:var(--ink)}.icon-btn svg{width:18px;height:18px}
+  .fav-pip{position:absolute;top:-3px;right:-3px;background:var(--vermilion);color:#fff;font-family:'Spline Sans Mono',monospace;font-size:9px;min-width:16px;height:16px;border-radius:9px;display:none;align-items:center;justify-content:center;padding:0 3px}
+  .fav-pip.show{display:flex}
+  .btn{border:1.5px solid var(--ink);background:var(--panel);cursor:pointer;padding:10px 16px;border-radius:9px;font-family:'Hanken Grotesk',sans-serif;font-weight:600;font-size:14px;transition:.16s;white-space:nowrap}
+  .btn:hover{background:var(--paper-2)}
+  .btn.primary{background:var(--vermilion);border-color:var(--vermilion);color:#fff}.btn.primary:hover{background:var(--vermilion-deep)}
+  @media(max-width:860px){.navlink span.lbl{display:none}.logo .lw{display:none}.btn.ghost-sm{display:none}}
+  @media(max-width:620px){.nav-center{display:none}}
+
+  header.hero{padding:40px 0 14px}
+  .tagrow{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+  h1.word{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(30px,5.4vw,70px);line-height:1.02;letter-spacing:-.03em}
+  h1.word .euro{color:var(--vermilion);font-style:italic;font-weight:500}
+  .tag{font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.03em;color:var(--ink-soft);max-width:300px;text-align:right;line-height:1.6}
+  .subhead{font-family:'Hanken Grotesk',sans-serif;font-weight:500;font-style:italic;font-size:clamp(14px,1.5vw,18px);color:var(--ink);margin-top:16px;line-height:1.5}
+  .trust{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:16px;font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.02em;color:var(--ink-soft)}
+  .trust-flags{font-size:17px;letter-spacing:-1px}
+  .trust-item{display:flex;align-items:center;gap:6px}
+  .trust-item::before{content:"✓";color:var(--emerald);font-weight:700}
+  .rule{height:6px;background-image:repeating-linear-gradient(90deg,var(--ink) 0 30px,transparent 30px 36px);margin-top:18px}
+  .search-stage{padding:30px 0 12px}
+  .search-kicker{font-family:'Fraunces',serif;font-style:italic;font-size:21px;color:var(--ink-soft);margin-bottom:13px}
+  form.search{display:flex;border:2.5px solid var(--ink);border-radius:var(--r);background:var(--panel);box-shadow:var(--shadow);overflow:hidden}
+  form.search input{flex:1;border:0;background:transparent;padding:19px 22px;font-family:'Fraunces',serif;font-size:clamp(18px,2.5vw,26px);color:var(--ink);outline:none;min-width:0}
+  form.search input::placeholder{color:#b6a98f}
+  form.search button{border:0;background:var(--vermilion);color:#fff;padding:0 26px;font-family:'Spline Sans Mono',monospace;font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:.2s;white-space:nowrap}
+  form.search button:hover{background:var(--vermilion-deep)}
+  .chips{display:flex;gap:9px;margin-top:14px;flex-wrap:wrap;align-items:center}
+  .chips .lbl{font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+  .chip{border:1.5px solid var(--line);background:var(--panel);border-radius:40px;padding:7px 15px;font-size:13px;cursor:pointer;transition:.18s;font-weight:500}
+  .chip:hover{border-color:var(--ink)}
+  .section-head{display:flex;align-items:baseline;justify-content:space-between;margin:38px 0 18px;border-bottom:1.5px solid var(--line);padding-bottom:10px}
+  .section-head h2{font-family:'Fraunces',serif;font-weight:600;font-size:25px}
+  .section-head .meta{font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+
+  .car-nav{display:flex;gap:8px}
+  .car-arrow{width:34px;height:34px;border-radius:8px;border:1.5px solid var(--line);background:var(--panel);cursor:pointer;font-size:18px;line-height:1;transition:.16s;color:var(--ink)}
+  .car-arrow:hover{border-color:var(--ink);background:var(--panel-2)}
+  .carousel{display:flex;gap:18px;overflow-x:hidden;padding:3px 2px 6px;align-items:flex-start}
+  .cc-card{flex:0 0 272px}
+  .cc{flex:0 0 262px;background:var(--panel);border:1.5px solid var(--line);border-radius:var(--r);overflow:hidden;cursor:pointer;display:flex;flex-direction:column;transition:border-color .2s,box-shadow .2s,transform .2s;position:relative;opacity:0;animation:rise .5s forwards}
+  .cc:hover{border-color:var(--ink);box-shadow:var(--shadow);transform:translateY(-3px)}
+  .cc-fav{position:absolute;top:10px;right:10px;z-index:2;width:32px;height:32px;border-radius:50%;border:1.5px solid var(--line);background:var(--panel);cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;transition:.15s}
+  .cc-fav:hover{border-color:var(--vermilion)}.cc-fav.on{background:var(--vermilion);border-color:var(--vermilion);color:#fff}
+  .cc-img{height:150px;background:#fff;border-bottom:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;padding:16px}
+  .cc-img img{max-width:100%;max-height:100%;object-fit:contain;mix-blend-mode:multiply}
+  .cc-body{padding:13px 14px 15px;display:flex;flex-direction:column;gap:4px;flex:1}
+  .cc-brand{font-family:'Spline Sans Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--vermilion)}
+  .cc-ttl{font-family:'Fraunces',serif;font-size:15px;font-weight:500;line-height:1.2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:36px}
+  .cc-foot{margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:8px;padding-top:8px}
+  .cc-price small{display:block;font-family:'Spline Sans Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:1px}
+  .cc-price b{font-family:'Spline Sans Mono',monospace;font-size:18px;color:var(--vermilion)}
+  .cc-price .fl{font-size:13px}
+  .cc-badge{font-family:'Spline Sans Mono',monospace;font-size:11px;font-weight:600;color:#fff;background:var(--emerald);padding:3px 7px;border-radius:6px;white-space:nowrap}
+  .car-skel{flex:0 0 262px;height:282px;border:1.5px solid var(--line);border-radius:var(--r);background:var(--panel);position:relative;overflow:hidden}
+  .car-skel::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);animation:sweep 1.3s infinite}
+  @media(max-width:520px){.cc,.car-skel{flex-basis:220px}}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:20px}
+  .card{background:var(--panel);border:1.5px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s,box-shadow .2s;opacity:0;transform:translateY(14px);animation:rise .5s forwards;position:relative}
+  @keyframes rise{to{opacity:1;transform:none}}
+  .card:hover{border-color:var(--ink);box-shadow:var(--shadow)}
+  .fav{position:absolute;top:12px;right:12px;z-index:3;width:36px;height:36px;border-radius:50%;border:1.5px solid var(--line);background:var(--panel);cursor:pointer;font-size:15px;transition:.16s;display:flex;align-items:center;justify-content:center}
+  .fav:hover{border-color:var(--vermilion)}.fav.on{background:var(--vermilion);border-color:var(--vermilion);color:#fff}
+  .cimg-top{width:100%;height:190px;background:var(--imgbg);border-bottom:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;padding:18px}
+  .cimg-top img{max-width:100%;max-height:100%;object-fit:contain;mix-blend-mode:multiply}
+  .cmeta{padding:13px 15px 9px}
+  .brand{font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--vermilion)}
+  .ttl{font-family:'Fraunces',serif;font-size:15.5px;font-weight:500;line-height:1.18;margin:3px 0 4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:36px}
+  .rating{font-family:'Spline Sans Mono',monospace;font-size:10.5px;color:var(--ink-soft)}
+  .league{border-top:1.5px solid var(--ink)}
+  .prow{display:grid;grid-template-columns:26px 24px 1fr auto 18px;align-items:center;gap:9px;padding:10px 16px;border-bottom:1px solid var(--line);text-decoration:none;transition:background .15s}
+  .prow:hover{background:var(--panel-2)}.prow.best{background:var(--vermilion-tint)}.prow.best:hover{background:#f7ddd2}
+  .prow .rk{font-family:'Spline Sans Mono',monospace;font-size:12px;color:var(--ink-soft)}.prow.best .rk{color:var(--vermilion);font-weight:600}
+  .prow .fl{font-size:16px;display:flex;align-items:center}
+  .fi{border-radius:2px;box-shadow:0 0 0 .5px rgba(27,23,20,.15);vertical-align:-0.1em}
+  .prow .cn{font-size:14px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .prow .cn .oos{font-family:'Spline Sans Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--vermilion);margin-left:6px}
+  .prow .pa{font-family:'Spline Sans Mono',monospace;font-weight:600;font-size:15px}.prow.best .pa{color:var(--vermilion)}
+  .prow .go{font-family:'Spline Sans Mono',monospace;font-size:13px;color:var(--ink-soft);text-align:right}.prow.best .go{color:var(--vermilion)}
+  .more{font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--ink-soft);text-align:center;padding:9px;border-bottom:1px solid var(--line);cursor:pointer}.more:hover{color:var(--ink)}
+  .csave{display:flex;align-items:center;gap:8px;padding:12px 16px;background:var(--emerald);color:#f3eee3;margin-top:auto}
+  .csave .arrow{font-size:18px}.csave .txt{font-family:'Spline Sans Mono',monospace;font-size:11.5px;line-height:1.4}.csave b{font-family:'Fraunces',serif;font-weight:700;font-size:15px}
+  .cshare{display:flex;gap:7px;padding:9px 13px;border-top:1px solid var(--line);align-items:center}
+  .sh-label{display:flex;align-items:center;color:var(--ink-soft);margin-right:3px}
+  .sh-label svg{width:16px;height:16px}
+  .shx{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:8px;cursor:pointer;text-decoration:none;transition:.15s}
+  .shx svg{width:18px;height:18px;display:block}
+  /* network logos muted (grayscale) by default, brand colours on hover */
+  .sh-wa svg,.sh-fb svg,.sh-x svg,.sh-tg svg{filter:grayscale(1) opacity(.55);transition:filter .18s}
+  .sh-wa:hover svg,.sh-fb:hover svg,.sh-x:hover svg,.sh-tg:hover svg{filter:none}
+  .shx:hover{background:var(--panel-2)}
+  .sh-cp{color:var(--ink-soft)}.sh-cp:hover{color:var(--vermilion)}
+  .sk{height:40px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+  .sk::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent);animation:sweep 1.2s infinite}
+  @keyframes sweep{to{transform:translateX(100%)}}
+  .skeleton-card{background:var(--panel);border:1.5px solid var(--line);border-radius:var(--r);height:360px;position:relative;overflow:hidden}
+  .skeleton-card::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);animation:sweep 1.3s infinite}
+  .state{text-align:center;padding:50px 20px;color:var(--ink-soft);font-family:'Fraunces',serif;font-style:italic;font-size:19px;grid-column:1/-1}
+
+  footer{border-top:1.5px solid var(--ink);margin-top:60px;padding:26px 0 48px;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:24px}
+  footer .fw{font-family:'Fraunces',serif;font-weight:900;font-size:24px}.footer .fw .euro,footer .fw .euro{color:var(--vermilion);font-style:italic;font-weight:500}
+  footer p,footer a{font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.02em;color:var(--ink-soft);line-height:1.9;display:block;text-decoration:none}
+  footer a:hover{color:var(--ink)}
+  @media(max-width:760px){.tag{display:none}footer{grid-template-columns:1fr}}
+
+  .scrim{position:fixed;inset:0;background:rgba(27,23,20,.45);backdrop-filter:blur(3px);z-index:40;opacity:0;pointer-events:none;transition:.25s}.scrim.open{opacity:1;pointer-events:auto}
+  .modal{position:fixed;z-index:50;left:50%;top:50%;transform:translate(-50%,-46%) scale(.98);opacity:0;pointer-events:none;background:var(--paper);border:2px solid var(--ink);border-radius:18px;box-shadow:24px 28px 0 rgba(27,23,20,.12);width:min(640px,94vw);max-height:90vh;overflow-y:auto;transition:.28s cubic-bezier(.2,.8,.2,1)}
+  .modal.open{opacity:1;pointer-events:auto;transform:translate(-50%,-50%) scale(1)}
+  .modal-head{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:1.5px solid var(--ink);position:sticky;top:0;background:var(--paper)}
+  .modal-head h3{font-family:'Fraunces',serif;font-weight:600;font-size:22px}
+  .modal-body{padding:22px 24px 26px}
+  .x{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--ink);background:transparent;cursor:pointer;font-size:17px;transition:.16s}.x:hover{background:var(--ink);color:var(--paper)}
+  .set-grid{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:26px}
+  .set-grid h4{font-family:'Fraunces',serif;font-weight:600;font-size:15px;margin-bottom:12px}
+  .opt{display:flex;align-items:center;gap:9px;padding:6px 0;cursor:pointer;font-size:14px}
+  .opt input{accent-color:var(--vermilion);width:16px;height:16px;cursor:pointer}.opt .fl{font-size:16px}
+  .set-foot{display:flex;justify-content:flex-end;gap:10px;margin-top:22px;padding-top:18px;border-top:1.5px solid var(--line)}
+  @media(max-width:620px){.set-grid{grid-template-columns:1fr;gap:18px}}
+  .auth-sub{font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.04em;color:var(--ink-soft);margin-bottom:18px;line-height:1.6}
+  .social{display:flex;flex-direction:column;gap:10px;margin-bottom:18px}
+  .social button{display:flex;align-items:center;justify-content:center;gap:11px;width:100%;padding:13px;border-radius:10px;border:1.5px solid var(--line);background:var(--panel);cursor:pointer;font-family:'Hanken Grotesk',sans-serif;font-weight:600;font-size:14.5px;transition:.16s}
+  .social button:hover{border-color:var(--ink);background:var(--panel-2)}.social button svg{width:18px;height:18px}
+  .divider{display:flex;align-items:center;gap:12px;margin:6px 0 16px;font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+  .divider::before,.divider::after{content:"";height:1px;background:var(--line);flex:1}
+  .field{margin-bottom:13px}
+  .field label{display:block;font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:5px}
+  .field input{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:9px;background:var(--panel);font-family:'Hanken Grotesk',sans-serif;font-size:15px;outline:none;transition:.16s}.field input:focus{border-color:var(--ink)}
+  .auth-submit{width:100%;padding:14px;border:0;border-radius:10px;background:var(--vermilion);color:#fff;font-family:'Spline Sans Mono',monospace;font-weight:600;font-size:13px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:.18s;margin-top:6px}.auth-submit:hover{background:var(--vermilion-deep)}
+  .auth-switch{text-align:center;margin-top:16px;font-size:13px;color:var(--ink-soft)}.auth-switch a{color:var(--vermilion);cursor:pointer;font-weight:600;text-decoration:underline}
+  .auth-note{margin-top:16px;padding:11px 13px;border:1.5px dashed var(--line);border-radius:9px;font-family:'Spline Sans Mono',monospace;font-size:10.5px;line-height:1.6;color:var(--ink-soft)}
+  .toast{position:fixed;left:50%;bottom:30px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--paper);padding:14px 22px;border-radius:10px;font-family:'Spline Sans Mono',monospace;font-size:13px;z-index:60;opacity:0;pointer-events:none;transition:.3s}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  /* honest demo-data banner */
+  .demo-note{display:none;background:var(--gold);color:#1b1714;font-family:'Spline Sans Mono',monospace;font-size:11.5px;letter-spacing:.03em;text-align:center;padding:8px 14px}
+  .demo-note.show{display:block}
+  /* best-price chip (non-color indicator for colorblind users) */
+  .prow{position:relative}
+  .prow.best{padding-top:16px}
+  .bestchip{position:absolute;top:0;right:0;background:var(--vermilion);color:#fff;font-family:'Spline Sans Mono',monospace;font-size:8px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:2px 8px;border-radius:0 0 0 7px}
+  /* price freshness */
+  .fresh{font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.03em;color:var(--ink-soft);padding:7px 16px;border-bottom:1px solid var(--line)}
+  /* keyboard focus */
+  a:focus-visible,button:focus-visible,input:focus-visible,label:focus-visible{outline:2px solid var(--vermilion);outline-offset:2px;border-radius:4px}
+  /* motion sensitivity: kill entrance/skeleton animations (carousel autoplay is disabled in JS) */
+  @media (prefers-reduced-motion: reduce){
+    .card,.cc-card{animation:none !important;opacity:1 !important;transform:none !important}
+    .sk::after,.skeleton-card::after,.car-skel::after{animation:none !important}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="nav-in">
+  <button class="logo" id="logoBtn"><span class="mark">K</span><span class="lw">Kompa<span class="e">lo</span></span></button>
+  <div class="nav-center">
+    <button id="navSearch" class="navlink active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><span class="lbl" data-i18n="nav_search">Rechercher</span></button>
+  </div>
+  <div class="nav-right">
+    <button id="navFav" class="navlink" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 17.3 6.16 20.5l1.12-6.5L2.5 9.4l6.55-.95L12 2.5l2.95 5.95 6.55.95-4.78 4.6 1.12 6.5z"/></svg><span class="lbl" data-i18n="nav_fav">Tes favoris</span><span class="fav-pip" id="favPip">0</span></button>
+    <button class="locale-btn" id="localeBtn" title="Paramètres"><svg class="gmini" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg><span id="localeTxt">FR / €</span></button>
+    <button class="btn ghost-sm" id="loginBtn" data-i18n="nav_login">Se connecter</button>
+    <button class="btn primary" id="signupBtn" data-i18n="nav_signup">Créer un compte</button>
+    <div class="userbox" id="userBox" style="display:none"><span class="uavatar" id="uAvatar">U</span><span id="userName"></span><button class="btn ghost-sm" id="logoutBtn">Déconnexion</button></div>
+    <button class="icon-btn" id="themeBtn" title="Mode nuit"></button>
+  </div>
+</div></nav>
+<div class="demo-note" id="demoNote" role="status"></div>
+
+<div class="wrap">
+  <header class="hero">
+    <h1 class="word"><span data-i18n="hero_t1">Obtiens le</span> <span class="euro" data-i18n="hero_t2">meilleur prix</span></h1>
+    <h2 class="subhead" id="subhead"></h2>
+  </header>
+  <section class="search-stage" id="searchStage">
+    <form class="search" id="form"><input id="q" type="text" autocomplete="off" data-i18n-ph="s_ph" placeholder="Sony WH-1000XM5, AirPods, Kindle…" /><button type="submit" data-i18n="s_btn">Comparer →</button></form>
+    <div class="chips"><span class="lbl" data-i18n="s_try">Essayez&nbsp;:</span>
+      <span class="chip" data-q="sony">Sony WH-1000XM5</span><span class="chip" data-q="airpods">AirPods Pro</span><span class="chip" data-q="kindle">Kindle</span><span class="chip" data-q="nintendo">Switch OLED</span><span class="chip" data-q="anker">Anker</span></div>
+  </section>
+  <section id="bestSection">
+    <div class="section-head"><h2 data-i18n="sec_best">Meilleures ventes</h2>
+      <span class="car-nav"><button class="car-arrow" id="carPrev" aria-label="prev">‹</button><button class="car-arrow" id="carNext" aria-label="next">›</button></span></div>
+    <div class="carousel" id="carousel"></div>
+  </section>
+  <section id="resultsSection" style="display:none">
+    <div class="section-head"><h2 id="resultsTitle"></h2><span class="meta" id="resultsMeta"></span></div>
+    <div class="grid" id="grid"></div>
+  </section>
+  <footer>
+    <div><div class="fw">Kompa<span class="euro">lo</span></div><p style="margin-top:8px" data-i18n="f_disclosure">En tant que Partenaire Amazon, Kompalo perçoit une commission sur les achats remplissant les conditions requises.</p></div>
+    <div><a data-i18n="f_copyright">Copyright © Kompalo 2026</a><a data-i18n="f_legal">Informations légales</a><a data-i18n="f_privacy">Confidentialité</a></div>
+    <div><a id="apiLink" href="#" target="_blank" data-i18n="f_api">État de l'API ↗</a><a data-i18n="f_cookies">Cookies</a><a data-i18n="f_contact">Contact</a></div>
+  </footer>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<div class="modal" id="settingsModal">
+  <div class="modal-head"><h3 data-i18n="st_title">Paramètres</h3><button class="x" data-close>✕</button></div>
+  <div class="modal-body">
+    <div class="set-grid">
+      <div><h4 data-i18n="st_countries">Afficher uniquement les prix de</h4><div id="countryOpts"></div></div>
+      <div><h4 data-i18n="st_lang">Langue</h4><div id="langOpts"></div></div>
+      <div><h4 data-i18n="st_cur">Devise</h4><div id="curOpts"></div></div>
+    </div>
+    <div class="set-foot"><button class="btn" data-close data-i18n="st_cancel">Annuler</button><button class="btn primary" id="applySettings" data-i18n="st_ok">OK</button></div>
+  </div>
+</div>
+<div class="modal" id="authModal">
+  <div class="modal-head"><h3 id="authTitle">Se connecter</h3><button class="x" data-close>✕</button></div>
+  <div class="modal-body">
+    <p class="auth-sub" id="authSub"></p>
+    <div class="social">
+      <button data-prov="Google"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.5 12.2c0-.7-.1-1.4-.2-2H12v3.8h5.9a5 5 0 0 1-2.2 3.3v2.7h3.6c2.1-1.9 3.2-4.8 3.2-7.8z"/><path fill="#34A853" d="M12 23c2.9 0 5.4-1 7.2-2.6l-3.6-2.7c-1 .7-2.3 1.1-3.6 1.1-2.8 0-5.1-1.9-6-4.4H2.3v2.8A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M6 14.4a6.6 6.6 0 0 1 0-4.2V7.4H2.3a11 11 0 0 0 0 9.8z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3 .5 4.1 1.6l3.1-3.1A11 11 0 0 0 12 1 11 11 0 0 0 2.3 7.4L6 10.2c.9-2.6 3.2-4.8 6-4.8z"/></svg><span class="prov-lbl" data-prov-name="Google">Google</span></button>
+      <button data-prov="Facebook"><svg viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.6 4.5-4.6 1.3 0 2.6.2 2.6.2v2.9h-1.5c-1.4 0-1.9.9-1.9 1.8V12h3.3l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12z"/></svg><span class="prov-lbl" data-prov-name="Facebook">Facebook</span></button>
+      <button data-prov="Apple"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 12.5c0-2.4 2-3.5 2-3.6-1.1-1.6-2.8-1.8-3.4-1.8-1.5-.2-2.8.8-3.5.8s-1.9-.8-3.1-.8c-1.6 0-3 .9-3.9 2.4-1.6 2.9-.4 7.1 1.2 9.5.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.5-1-2.5-3.7zM14.6 5.2c.6-.8 1-1.9.9-3-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.8-.9 2.8 1 .1 2-.5 2.7-1.2z"/></svg><span class="prov-lbl" data-prov-name="Apple">Apple</span></button>
+    </div>
+    <div class="divider" data-i18n="au_or">ou</div>
+    <form id="authForm">
+      <div class="field" id="nameField" style="display:none"><label data-i18n="au_name">Nom</label><input type="text" /></div>
+      <div class="field"><label data-i18n="au_email">Email</label><input type="email" placeholder="toi@exemple.com" required /></div>
+      <div class="field"><label data-i18n="au_pass">Mot de passe</label><input type="password" placeholder="••••••••" required /></div>
+      <button class="auth-submit" id="authSubmit" type="submit">Se connecter</button>
+    </form>
+    <p class="auth-switch" id="authSwitch"></p>
+    <div class="auth-note" data-i18n="au_note">🔒 Aperçu de l'interface. La connexion réelle nécessite un système d'authentification dédié — prévu pour une prochaine étape.</div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>window.__LANG__='de';</script>
+<script>
+const API_BASE="https://europrice-backend-production.up.railway.app";
+const FLAG={DE:"🇩🇪",FR:"🇫🇷",IT:"🇮🇹",ES:"🇪🇸",NL:"🇳🇱",SE:"🇸🇪",PL:"🇵🇱",UK:"🇬🇧"};
+// ISO codes for flag-icons (UK marketplace → GB flag). SVG flags render on all OSes.
+const FLAG_ISO={DE:"de",FR:"fr",IT:"it",ES:"es",NL:"nl",SE:"se",PL:"pl",UK:"gb"};
+function flagHtml(code){const iso=FLAG_ISO[code];return iso?`<span class="fi fi-${iso}"></span>`:"";}
+
+// Share tooltips, localised. Network names stay as-is across languages.
+const SHARE_T={
+  fr:{on:"Partager sur",copy:"Copier le lien"},
+  en:{on:"Share on",copy:"Copy link"},
+  de:{on:"Teilen auf",copy:"Link kopieren"},
+  it:{on:"Condividi su",copy:"Copia il link"},
+  es:{on:"Compartir en",copy:"Copiar el enlace"},
+  nl:{on:"Delen op",copy:"Link kopiëren"},
+  sv:{on:"Dela på",copy:"Kopiera länken"},
+  pl:{on:"Udostępnij na",copy:"Skopiuj link"},
+};
+const ICON_SHARE='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>';
+const ICON_WA='<svg viewBox="0 0 24 24" fill="#25D366"><path d="M.06 24l1.68-6.16A11.87 11.87 0 0 1 .14 11.9C.14 5.34 5.5 0 12.06 0a11.82 11.82 0 0 1 8.42 3.5 11.82 11.82 0 0 1 3.48 8.42c0 6.56-5.36 11.9-11.94 11.9a11.95 11.95 0 0 1-5.71-1.45L.06 24zm6.6-3.8c1.68.99 3.28 1.59 5.4 1.59 5.45 0 9.89-4.43 9.89-9.88a9.86 9.86 0 0 0-9.88-9.87c-5.46 0-9.9 4.43-9.9 9.88 0 2.23.65 3.9 1.75 5.65l-.99 3.62 3.73-.98zm11.39-5.55c-.07-.12-.27-.2-.57-.35-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.4-1.48-.89-.8-1.49-1.78-1.66-2.08-.17-.3-.02-.46.13-.6.13-.14.3-.36.45-.53.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.68-1.63-.93-2.23-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42z"/></svg>';
+const ICON_FB='<svg viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.6 4.5-4.6 1.3 0 2.6.2 2.6.2v2.9h-1.5c-1.4 0-1.9.9-1.9 1.8V12h3.3l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12z"/></svg>';
+const ICON_X='<svg viewBox="0 0 24 24" fill="#111111"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.46l8.6-9.83L0 1.15h7.6l5.24 6.93 6.06-6.93zm-1.29 19.5h2.04L6.49 3.24H4.3l13.31 17.41z"/></svg>';
+const ICON_TG='<svg viewBox="0 0 24 24" fill="#26A5E4"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>';
+const ICON_LINK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>';
+const CUR_SYM={EUR:"€",GBP:"£",USD:"$",SEK:"kr",PLN:"zł",CHF:"CHF"};
+const THEME_LABEL={fr:["Mode nuit","Mode jour"],en:["Dark mode","Light mode"],de:["Nachtmodus","Tagmodus"],it:["Modalità notte","Modalità giorno"],es:["Modo noche","Modo día"],nl:["Nachtmodus","Dagmodus"],sv:["Mörkt läge","Ljust läge"],pl:["Tryb nocny","Tryb dzienny"]};
+const ICON_MOON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>';
+const ICON_SUN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
+// A11y / honesty strings
+const BEST_LBL={fr:"meilleur prix",en:"best price",de:"Bestpreis",it:"miglior prezzo",es:"mejor precio",nl:"beste prijs",sv:"bästa pris",pl:"najlepsza cena"};
+const FRESH_LBL={fr:"Prix mis à jour",en:"Prices updated",de:"Preise aktualisiert",it:"Prezzi aggiornati",es:"Precios actualizados",nl:"Prijzen bijgewerkt",sv:"Priser uppdaterade",pl:"Ceny zaktualizowane"};
+const DEMO_NOTE={fr:"Site en démonstration : les prix affichés sont des données d'exemple.",en:"Demo site: displayed prices are sample data.",de:"Demo-Website: Die angezeigten Preise sind Beispieldaten.",it:"Sito dimostrativo: i prezzi mostrati sono dati di esempio.",es:"Sitio de demostración: los precios mostrados son datos de ejemplo.",nl:"Demosite: de getoonde prijzen zijn voorbeeldgegevens.",sv:"Demosajt: priserna som visas är exempeldata.",pl:"Strona demonstracyjna: wyświetlane ceny to dane przykładowe."};
+const REDUCED_MOTION = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+let DEMO_BANNER=false;
+function refreshDemoNote(){
+  const el=document.getElementById('demoNote');if(!el)return;
+  el.textContent=DEMO_NOTE[state.lang];
+  el.classList.toggle('show', DEMO_BANNER||USING_SAMPLE);
+}
+// "il y a 2 h" — localized relative time for price freshness
+function relTime(iso){
+  try{
+    const then=new Date(iso).getTime();if(!isFinite(then))return "";
+    const s=Math.round((then-Date.now())/1000);
+    const rtf=new Intl.RelativeTimeFormat(LOCALE[state.lang],{numeric:'auto'});
+    const a=Math.abs(s);
+    if(a<3600)return rtf.format(Math.round(s/60),'minute');
+    if(a<86400)return rtf.format(Math.round(s/3600),'hour');
+    return rtf.format(Math.round(s/86400),'day');
+  }catch{return "";}
+}
+// most recent price refresh across a card's rows → "Prix mis à jour il y a 2 h"
+function freshLine(rows){
+  let latest=0;
+  for(const r of rows||[]){const ts=r.updatedAt?new Date(r.updatedAt).getTime():0;if(isFinite(ts)&&ts>latest)latest=ts;}
+  if(!latest)return "";
+  const rel=relTime(latest);
+  return rel?`<div class="fresh">${FRESH_LBL[state.lang]} ${rel}</div>`:"";
+}
+const ALL_COUNTRIES=["DE","UK","FR","ES","IT","SE","NL","PL"];
+const CUR_CODES=["EUR","GBP","USD","SEK","PLN","CHF"];
+const POPULAR=["sony","airpods","nintendo","anker","kindle"];
+const LANG_ORDER=["fr","en","de","it","es","nl","sv","pl"];
+const LANG_LABEL={fr:"Français",en:"English",de:"Deutsch",it:"Italiano",es:"Español",nl:"Nederlands",sv:"Svenska",pl:"Polski"};
+const LOCALE={fr:"fr-FR",en:"en-GB",de:"de-DE",it:"it-IT",es:"es-ES",nl:"nl-NL",sv:"sv-SE",pl:"pl-PL"};
+
+// ── i18n dictionary (rigorous translations) ──
+const I18N={
+  fr:{nav_search:"Rechercher",nav_fav:"Tes favoris",nav_login:"Se connecter",nav_signup:"Créer un compte",
+    hero_t1:"Obtiens le",hero_t2:"meilleur prix",hero_tag:"Renseignement tarifaire transfrontalier sur les marketplaces Amazon européennes. Un produit, huit pays, le meilleur prix.",
+    s_kicker:"Quel produit cherchez-vous au meilleur prix ?",s_btn:"Comparer →",s_ph:"Sony WH-1000XM5, AirPods, Kindle…",s_try:"Essayez :",
+    sec_best:"Meilleures ventes",sec_fav:"Tes favoris",m_loading:"chargement…",m_demo:" · démo",m_products:n=>n+" produit"+(n>1?"s":""),m_results0:"Aucun résultat",m_favorites:n=>n+" favori"+(n>1?"s":""),
+    c_reviews:"avis",c_share:"Partager",c_copy:"Copier",c_oos:"rupture",c_more:n=>"+ "+n+" autre"+(n>1?"s":"")+" pays ▾",c_save:"Économisez",c_save_sub:(p,a,b)=>p+"% — "+a+" vs "+b,c_none:"Aucun prix pour les pays sélectionnés",
+    e_no_results:"Aucun résultat. Essayez un autre terme.",e_no_fav:"Aucun favori pour l'instant. Cliquez sur ☆ d'un produit pour l'ajouter.",
+    st_title:"Paramètres",st_countries:"Afficher uniquement les prix de",st_lang:"Langue",st_cur:"Devise",st_cancel:"Annuler",st_ok:"OK",
+    au_login:"Se connecter",au_signup:"Créer un compte",au_login_sub:"Accédez à vos favoris et alertes de prix sur tous vos appareils.",au_signup_sub:"Créez votre compte pour sauvegarder vos favoris et suivre les baisses de prix.",
+    au_or:"ou",au_name:"Nom",au_email:"Email",au_pass:"Mot de passe",au_cont:"Continuer avec ",au_login_btn:"Se connecter",au_signup_btn:"Créer mon compte",au_to_signup:"Pas encore de compte ? Inscrivez-vous",au_to_login:"Déjà un compte ? Connectez-vous",au_note:"🔒 Aperçu de l'interface. La connexion réelle nécessite un système d'authentification dédié — prévu pour une prochaine étape.",
+    f_disclosure:"En tant que Partenaire Amazon, Kompalo perçoit une commission sur les achats remplissant les conditions requises.",f_copyright:"Copyright © Kompalo 2026",f_legal:"Informations légales",f_privacy:"Confidentialité",f_api:"État de l'API ↗",f_cookies:"Cookies",f_contact:"Contact",
+    t_copied:"Lien copié",t_pick:"Sélectionnez au moins un pays",t_auth:p=>p+" : authentification bientôt disponible",
+    co:{DE:"Allemagne",UK:"Royaume-Uni",FR:"France",ES:"Espagne",IT:"Italie",SE:"Suède",NL:"Pays-Bas",PL:"Pologne"},
+    cu:{EUR:"€ Euro",GBP:"£ Livre sterling",USD:"$ Dollar US",SEK:"kr Couronne suédoise",PLN:"zł Zloty polonais",CHF:"CHF Franc suisse"}},
+  en:{nav_search:"Search",nav_fav:"Your favourites",nav_login:"Log in",nav_signup:"Sign up",
+    hero_t1:"Get the",hero_t2:"best price",hero_tag:"Cross-border price intelligence across the European Amazon marketplaces. One product, eight countries, the best price.",
+    s_kicker:"Which product do you want at the best price?",s_btn:"Compare →",s_ph:"Sony WH-1000XM5, AirPods, Kindle…",s_try:"Try:",
+    sec_best:"Best sellers",sec_fav:"Your favourites",m_loading:"loading…",m_demo:" · demo",m_products:n=>n+" product"+(n>1?"s":""),m_results0:"No results",m_favorites:n=>n+" favourite"+(n>1?"s":""),
+    c_reviews:"reviews",c_share:"Share",c_copy:"Copy",c_oos:"out of stock",c_more:n=>"+ "+n+" more countr"+(n>1?"ies":"y")+" ▾",c_save:"Save",c_save_sub:(p,a,b)=>p+"% — "+a+" vs "+b,c_none:"No prices for the selected countries",
+    e_no_results:"No results. Try another term.",e_no_fav:"No favourites yet. Click ☆ on a product to add it.",
+    st_title:"Settings",st_countries:"Only show prices from",st_lang:"Language",st_cur:"Currency",st_cancel:"Cancel",st_ok:"OK",
+    au_login:"Log in",au_signup:"Sign up",au_login_sub:"Access your favourites and price alerts on all your devices.",au_signup_sub:"Create your account to save favourites and track price drops.",
+    au_or:"or",au_name:"Name",au_email:"Email",au_pass:"Password",au_cont:"Continue with ",au_login_btn:"Log in",au_signup_btn:"Create my account",au_to_signup:"No account yet? Sign up",au_to_login:"Already have an account? Log in",au_note:"🔒 Interface preview. Real sign-in requires a dedicated authentication system — planned for a future step.",
+    f_disclosure:"As an Amazon Associate, Kompalo earns a commission on qualifying purchases.",f_copyright:"Copyright © Kompalo 2026",f_legal:"Legal notice",f_privacy:"Privacy",f_api:"API status ↗",f_cookies:"Cookies",f_contact:"Contact",
+    t_copied:"Link copied",t_pick:"Select at least one country",t_auth:p=>p+": sign-in coming soon",
+    co:{DE:"Germany",UK:"United Kingdom",FR:"France",ES:"Spain",IT:"Italy",SE:"Sweden",NL:"Netherlands",PL:"Poland"},
+    cu:{EUR:"€ Euro",GBP:"£ Pound sterling",USD:"$ US dollar",SEK:"kr Swedish krona",PLN:"zł Polish złoty",CHF:"CHF Swiss franc"}},
+  de:{nav_search:"Suchen",nav_fav:"Deine Favoriten",nav_login:"Anmelden",nav_signup:"Konto erstellen",
+    hero_t1:"Hol dir den",hero_t2:"besten Preis",hero_tag:"Grenzüberschreitende Preisanalyse über die europäischen Amazon-Marketplaces. Ein Produkt, acht Länder, der beste Preis.",
+    s_kicker:"Welches Produkt möchtest du zum besten Preis?",s_btn:"Vergleichen →",s_ph:"Sony WH-1000XM5, AirPods, Kindle…",s_try:"Probier:",
+    sec_best:"Bestseller",sec_fav:"Deine Favoriten",m_loading:"lädt…",m_demo:" · Demo",m_products:n=>n+" Produkt"+(n>1?"e":""),m_results0:"Keine Ergebnisse",m_favorites:n=>n+" Favorit"+(n>1?"en":""),
+    c_reviews:"Bewertungen",c_share:"Teilen",c_copy:"Kopieren",c_oos:"nicht verfügbar",c_more:n=>"+ "+n+" weitere"+(n>1?"":"s")+" Land ▾",c_save:"Spare",c_save_sub:(p,a,b)=>p+"% — "+a+" statt "+b,c_none:"Keine Preise für die gewählten Länder",
+    e_no_results:"Keine Ergebnisse. Versuche einen anderen Begriff.",e_no_fav:"Noch keine Favoriten. Klicke auf ☆ eines Produkts, um es hinzuzufügen.",
+    st_title:"Einstellungen",st_countries:"Nur Preise anzeigen aus",st_lang:"Sprache",st_cur:"Währung",st_cancel:"Abbrechen",st_ok:"OK",
+    au_login:"Anmelden",au_signup:"Konto erstellen",au_login_sub:"Greife auf all deinen Geräten auf Favoriten und Preisalarme zu.",au_signup_sub:"Erstelle dein Konto, um Favoriten zu speichern und Preissenkungen zu verfolgen.",
+    au_or:"oder",au_name:"Name",au_email:"E-Mail",au_pass:"Passwort",au_cont:"Weiter mit ",au_login_btn:"Anmelden",au_signup_btn:"Konto erstellen",au_to_signup:"Noch kein Konto? Registrieren",au_to_login:"Schon ein Konto? Anmelden",au_note:"🔒 Vorschau der Oberfläche. Echte Anmeldung erfordert ein eigenes Authentifizierungssystem — für einen späteren Schritt geplant.",
+    f_disclosure:"Als Amazon-Partner verdient Kompalo an qualifizierten Käufen eine Provision.",f_copyright:"Copyright © Kompalo 2026",f_legal:"Impressum",f_privacy:"Datenschutz",f_api:"API-Status ↗",f_cookies:"Cookies",f_contact:"Kontakt",
+    t_copied:"Link kopiert",t_pick:"Wähle mindestens ein Land",t_auth:p=>p+": Anmeldung bald verfügbar",
+    co:{DE:"Deutschland",UK:"Vereinigtes Königreich",FR:"Frankreich",ES:"Spanien",IT:"Italien",SE:"Schweden",NL:"Niederlande",PL:"Polen"},
+    cu:{EUR:"€ Euro",GBP:"£ Pfund Sterling",USD:"$ US-Dollar",SEK:"kr Schwedische Krone",PLN:"zł Polnischer Złoty",CHF:"CHF Schweizer Franken"}},
+  it:{nav_search:"Cerca",nav_fav:"I tuoi preferiti",nav_login:"Accedi",nav_signup:"Registrati",
+    hero_t1:"Ottieni il",hero_t2:"prezzo migliore",hero_tag:"Analisi dei prezzi transfrontaliera sui marketplace Amazon europei. Un prodotto, otto paesi, il prezzo migliore.",
+    s_kicker:"Quale prodotto cerchi al prezzo migliore?",s_btn:"Confronta →",s_ph:"Sony WH-1000XM5, AirPods, Kindle…",s_try:"Prova:",
+    sec_best:"Più venduti",sec_fav:"I tuoi preferiti",m_loading:"caricamento…",m_demo:" · demo",m_products:n=>n+" prodott"+(n>1?"i":"o"),m_results0:"Nessun risultato",m_favorites:n=>n+" preferit"+(n>1?"i":"o"),
+    c_reviews:"recensioni",c_share:"Condividi",c_copy:"Copia",c_oos:"esaurito",c_more:n=>"+ "+n+" altro"+(n>1?"i":"")+" paes"+(n>1?"i":"e")+" ▾",c_save:"Risparmia",c_save_sub:(p,a,b)=>p+"% — "+a+" vs "+b,c_none:"Nessun prezzo per i paesi selezionati",
+    e_no_results:"Nessun risultato. Prova un altro termine.",e_no_fav:"Ancora nessun preferito. Clicca su ☆ di un prodotto per aggiungerlo.",
+    st_title:"Impostazioni",st_countries:"Mostra solo i prezzi di",st_lang:"Lingua",st_cur:"Valuta",st_cancel:"Annulla",st_ok:"OK",
+    au_login:"Accedi",au_signup:"Registrati",au_login_sub:"Accedi ai tuoi preferiti e agli avvisi di prezzo su tutti i dispositivi.",au_signup_sub:"Crea il tuo account per salvare i preferiti e seguire i cali di prezzo.",
+    au_or:"oppure",au_name:"Nome",au_email:"Email",au_pass:"Password",au_cont:"Continua con ",au_login_btn:"Accedi",au_signup_btn:"Crea il mio account",au_to_signup:"Non hai un account? Registrati",au_to_login:"Hai già un account? Accedi",au_note:"🔒 Anteprima dell'interfaccia. L'accesso reale richiede un sistema di autenticazione dedicato — previsto per una fase successiva.",
+    f_disclosure:"In qualità di Affiliato Amazon, Kompalo riceve una commissione sugli acquisti idonei.",f_copyright:"Copyright © Kompalo 2026",f_legal:"Note legali",f_privacy:"Privacy",f_api:"Stato API ↗",f_cookies:"Cookie",f_contact:"Contatti",
+    t_copied:"Link copiato",t_pick:"Seleziona almeno un paese",t_auth:p=>p+": accesso disponibile a breve",
+    co:{DE:"Germania",UK:"Regno Unito",FR:"Francia",ES:"Spagna",IT:"Italia",SE:"Svezia",NL:"Paesi Bassi",PL:"Polonia"},
+    cu:{EUR:"€ Euro",GBP:"£ Sterlina",USD:"$ Dollaro USA",SEK:"kr Corona svedese",PLN:"zł Złoty polacco",CHF:"CHF Franco svizzero"}},
+  es:{nav_search:"Buscar",nav_fav:"Tus favoritos",nav_login:"Iniciar sesión",nav_signup:"Crear cuenta",
+    hero_t1:"Consigue el",hero_t2:"mejor precio",hero_tag:"Inteligencia de precios transfronteriza en los marketplaces de Amazon europeos. Un producto, ocho países, el mejor precio.",
+    s_kicker:"¿Qué producto buscas al mejor precio?",s_btn:"Comparar →",s_ph:"Sony WH-1000XM5, AirPods, Kindle…",s_try:"Prueba:",
+    sec_best:"Más vendidos",sec_fav:"Tus favoritos",m_loading:"cargando…",m_demo:" · demo",m_products:n=>n+" producto"+(n>1?"s":""),m_results0:"Sin resultados",m_favorites:n=>n+" favorito"+(n>1?"s":""),
+    c_reviews:"reseñas",c_share:"Compartir",c_copy:"Copiar",c_oos:"agotado",c_more:n=>"+ "+n+" país"+(n>1?"es":"")+" más ▾",c_save:"Ahorra",c_save_sub:(p,a,b)=>p+"% — "+a+" vs "+b,c_none:"Sin precios para los países seleccionados",
+    e_no_results:"Sin resultados. Prueba otro término.",e_no_fav:"Aún no hay favoritos. Haz clic en ☆ de un producto para añadirlo.",
+    st_title:"Ajustes",st_countries:"Mostrar solo precios de",st_lang:"Idioma",st_cur:"Moneda",st_cancel:"Cancelar",st_ok:"OK",
+    au_login:"Iniciar sesión",au_signup:"Crear cuenta",au_login_sub:"Accede a tus favoritos y alertas de precio en todos tus dispositivos.",au_signup_sub:"Crea tu cuenta para guardar favoritos y seguir las bajadas de precio.",
+    au_or:"o",au_name:"Nombre",au_email:"Email",au_pass:"Contraseña",au_cont:"Continuar con ",au_login_btn:"Iniciar sesión",au_signup_btn:"Crear mi cuenta",au_to_signup:"¿Aún no tienes cuenta? Regístrate",au_to_login:"¿Ya tienes cuenta? Inicia sesión",au_note:"🔒 Vista previa de la interfaz. El inicio de sesión real requiere un sistema de autenticación dedicado — previsto para una fase futura.",
+    f_disclosure:"Como Afiliado de Amazon, Kompalo obtiene una comisión por las compras que cumplan los requisitos.",f_copyright:"Copyright © Kompalo 2026",f_legal:"Aviso legal",f_privacy:"Privacidad",f_api:"Estado de la API ↗",f_cookies:"Cookies",f_contact:"Contacto",
+    t_copied:"Enlace copiado",t_pick:"Selecciona al menos un país",t_auth:p=>p+": inicio de sesión próximamente",
+    co:{DE:"Alemania",UK:"Reino Unido",FR:"Francia",ES:"España",IT:"Italia",SE:"Suecia",NL:"Países Bajos",PL:"Polonia"},
+    cu:{EUR:"€ Euro",GBP:"£ Libra esterlina",USD:"$ Dólar estadounidense",SEK:"kr Corona sueca",PLN:"zł Esloti polaco",CHF:"CHF Franco suizo"}},
+  nl:{nav_search:"Zoeken",nav_fav:"Je favorieten",nav_login:"Inloggen",nav_signup:"Account aanmaken",
+    hero_t1:"Vind de",hero_t2:"beste prijs",hero_tag:"Grensoverschrijdende prijsvergelijking op de Europese Amazon-marktplaatsen. Eén product, acht landen, de beste prijs.",
+    s_kicker:"Welk product zoek je voor de beste prijs?",s_btn:"Vergelijken →",s_ph:"Sony WH-1000XM5, AirPods, Kindle…",s_try:"Probeer:",
+    sec_best:"Bestsellers",sec_fav:"Je favorieten",m_loading:"laden…",m_demo:" · demo",m_products:n=>n+" product"+(n>1?"en":""),m_results0:"Geen resultaten",m_favorites:n=>n+" favoriet"+(n>1?"en":""),
+    c_reviews:"beoordelingen",c_share:"Delen",c_copy:"Kopiëren",c_oos:"niet op voorraad",c_more:n=>"+ "+n+" ander land"+(n>1?"en":"")+" ▾",c_save:"Bespaar",c_save_sub:(p,a,b)=>p+"% — "+a+" vs "+b,c_none:"Geen prijzen voor de geselecteerde landen",
+    e_no_results:"Geen resultaten. Probeer een andere term.",e_no_fav:"Nog geen favorieten. Klik op ☆ van een product om het toe te voegen.",
+    st_title:"Instellingen",st_countries:"Toon alleen prijzen uit",st_lang:"Taal",st_cur:"Valuta",st_cancel:"Annuleren",st_ok:"OK",
+    au_login:"Inloggen",au_signup:"Account aanmaken",au_login_sub:"Bekijk je favorieten en prijsmeldingen op al je apparaten.",au_signup_sub:"Maak je account om favorieten op te slaan en prijsdalingen te volgen.",
+    au_or:"of",au_name:"Naam",au_email:"E-mail",au_pass:"Wachtwoord",au_cont:"Doorgaan met ",au_login_btn:"Inloggen",au_signup_btn:"Mijn account aanmaken",au_to_signup:"Nog geen account? Registreer",au_to_login:"Al een account? Log in",au_note:"🔒 Voorbeeld van de interface. Echt inloggen vereist een eigen authenticatiesysteem — gepland voor een latere stap.",
+    f_disclosure:"Als Amazon-partner verdient Kompalo een commissie op kwalificerende aankopen.",f_copyright:"Copyright © Kompalo 2026",f_legal:"Juridische informatie",f_privacy:"Privacy",f_api:"API-status ↗",f_cookies:"Cookies",f_contact:"Contact",
+    t_copied:"Link gekopieerd",t_pick:"Selecteer minstens één land",t_auth:p=>p+": inloggen binnenkort beschikbaar",
+    co:{DE:"Duitsland",UK:"Verenigd Koninkrijk",FR:"Frankrijk",ES:"Spanje",IT:"Italië",SE:"Zweden",NL:"Nederland",PL:"Polen"},
+    cu:{EUR:"€ Euro",GBP:"£ Pond sterling",USD:"$ Amerikaanse dollar",SEK:"kr Zweedse kroon",PLN:"zł Poolse zloty",CHF:"CHF Zwitserse frank"}},
+  sv:{nav_search:"Sök",nav_fav:"Dina favoriter",nav_login:"Logga in",nav_signup:"Skapa konto",
+    hero_t1:"Hitta det",hero_t2:"bästa priset",hero_tag:"Gränsöverskridande prisbevakning på de europeiska Amazon-marknadsplatserna. En produkt, åtta länder, det bästa priset.",
+    s_kicker:"Vilken produkt söker du till bästa pris?",s_btn:"Jämför →",s_ph:"Sony WH-1000XM5, AirPods, Kindle…",s_try:"Prova:",
+    sec_best:"Mest sålda",sec_fav:"Dina favoriter",m_loading:"laddar…",m_demo:" · demo",m_products:n=>n+" produkt"+(n>1?"er":""),m_results0:"Inga resultat",m_favorites:n=>n+" favorit"+(n>1?"er":""),
+    c_reviews:"recensioner",c_share:"Dela",c_copy:"Kopiera",c_oos:"slut i lager",c_more:n=>"+ "+n+" land"+(n>1?"er":"")+" till ▾",c_save:"Spara",c_save_sub:(p,a,b)=>p+"% — "+a+" mot "+b,c_none:"Inga priser för de valda länderna",
+    e_no_results:"Inga resultat. Prova en annan sökterm.",e_no_fav:"Inga favoriter ännu. Klicka på ☆ på en produkt för att lägga till den.",
+    st_title:"Inställningar",st_countries:"Visa endast priser från",st_lang:"Språk",st_cur:"Valuta",st_cancel:"Avbryt",st_ok:"OK",
+    au_login:"Logga in",au_signup:"Skapa konto",au_login_sub:"Kom åt dina favoriter och prisvarningar på alla dina enheter.",au_signup_sub:"Skapa ditt konto för att spara favoriter och följa prissänkningar.",
+    au_or:"eller",au_name:"Namn",au_email:"E-post",au_pass:"Lösenord",au_cont:"Fortsätt med ",au_login_btn:"Logga in",au_signup_btn:"Skapa mitt konto",au_to_signup:"Inget konto än? Registrera dig",au_to_login:"Har du redan ett konto? Logga in",au_note:"🔒 Förhandsvisning av gränssnittet. Riktig inloggning kräver ett dedikerat autentiseringssystem — planerat till ett senare steg.",
+    f_disclosure:"Som Amazon-partner tjänar Kompalo en provision på kvalificerande köp.",f_copyright:"Copyright © Kompalo 2026",f_legal:"Juridisk information",f_privacy:"Integritet",f_api:"API-status ↗",f_cookies:"Cookies",f_contact:"Kontakt",
+    t_copied:"Länk kopierad",t_pick:"Välj minst ett land",t_auth:p=>p+": inloggning kommer snart",
+    co:{DE:"Tyskland",UK:"Storbritannien",FR:"Frankrike",ES:"Spanien",IT:"Italien",SE:"Sverige",NL:"Nederländerna",PL:"Polen"},
+    cu:{EUR:"€ Euro",GBP:"£ Pund sterling",USD:"$ US-dollar",SEK:"kr Svensk krona",PLN:"zł Polsk zloty",CHF:"CHF Schweizerfranc"}},
+  pl:{nav_search:"Szukaj",nav_fav:"Twoje ulubione",nav_login:"Zaloguj się",nav_signup:"Załóż konto",
+    hero_t1:"Znajdź",hero_t2:"najlepszą cenę",hero_tag:"Transgraniczna analiza cen na europejskich platformach Amazon. Jeden produkt, osiem krajów, najlepsza cena.",
+    s_kicker:"Jakiego produktu szukasz w najlepszej cenie?",s_btn:"Porównaj →",s_ph:"Sony WH-1000XM5, AirPods, Kindle…",s_try:"Wypróbuj:",
+    sec_best:"Bestsellery",sec_fav:"Twoje ulubione",m_loading:"ładowanie…",m_demo:" · demo",m_products:n=>n+" produkt"+(n===1?"":n<5?"y":"ów"),m_results0:"Brak wyników",m_favorites:n=>n+" ulubion"+(n===1?"y":n<5?"e":"ych"),
+    c_reviews:"opinii",c_share:"Udostępnij",c_copy:"Kopiuj",c_oos:"brak w magazynie",c_more:n=>"+ "+n+" więcej "+(n<5?"kraje":"krajów")+" ▾",c_save:"Oszczędź",c_save_sub:(p,a,b)=>p+"% — "+a+" vs "+b,c_none:"Brak cen dla wybranych krajów",
+    e_no_results:"Brak wyników. Spróbuj innego hasła.",e_no_fav:"Brak ulubionych. Kliknij ☆ na produkcie, aby go dodać.",
+    st_title:"Ustawienia",st_countries:"Pokaż tylko ceny z",st_lang:"Język",st_cur:"Waluta",st_cancel:"Anuluj",st_ok:"OK",
+    au_login:"Zaloguj się",au_signup:"Załóż konto",au_login_sub:"Uzyskaj dostęp do ulubionych i alertów cenowych na wszystkich urządzeniach.",au_signup_sub:"Załóż konto, aby zapisywać ulubione i śledzić spadki cen.",
+    au_or:"lub",au_name:"Imię",au_email:"E-mail",au_pass:"Hasło",au_cont:"Kontynuuj z ",au_login_btn:"Zaloguj się",au_signup_btn:"Załóż konto",au_to_signup:"Nie masz konta? Zarejestruj się",au_to_login:"Masz już konto? Zaloguj się",au_note:"🔒 Podgląd interfejsu. Prawdziwe logowanie wymaga dedykowanego systemu uwierzytelniania — zaplanowane na kolejny etap.",
+    f_disclosure:"Jako Partner Amazon, Kompalo otrzymuje prowizję od kwalifikujących się zakupów.",f_copyright:"Copyright © Kompalo 2026",f_legal:"Informacje prawne",f_privacy:"Prywatność",f_api:"Status API ↗",f_cookies:"Pliki cookie",f_contact:"Kontakt",
+    t_copied:"Skopiowano link",t_pick:"Wybierz co najmniej jeden kraj",t_auth:p=>p+": logowanie wkrótce dostępne",
+    co:{DE:"Niemcy",UK:"Wielka Brytania",FR:"Francja",ES:"Hiszpania",IT:"Włochy",SE:"Szwecja",NL:"Holandia",PL:"Polska"},
+    cu:{EUR:"€ Euro",GBP:"£ Funt szterling",USD:"$ Dolar amerykański",SEK:"kr Korona szwedzka",PLN:"zł Złoty polski",CHF:"CHF Frank szwajcarski"}}
+};
+
+const FROM_LABEL={fr:"dès",en:"from",de:"ab",it:"da",es:"desde",nl:"vanaf",sv:"från",pl:"od"};
+const AUTH_MSG={
+  fr:{logout:"Déconnexion",in:"Connecté ✓",out:"Déconnecté",needLogin:"Connecte-toi pour ajouter aux favoris"},
+  en:{logout:"Log out",in:"Logged in ✓",out:"Logged out",needLogin:"Log in to add favourites"},
+  de:{logout:"Abmelden",in:"Angemeldet ✓",out:"Abgemeldet",needLogin:"Melde dich an, um Favoriten zu speichern"},
+  it:{logout:"Esci",in:"Accesso effettuato ✓",out:"Disconnesso",needLogin:"Accedi per aggiungere ai preferiti"},
+  es:{logout:"Cerrar sesión",in:"Sesión iniciada ✓",out:"Sesión cerrada",needLogin:"Inicia sesión para añadir a favoritos"},
+  nl:{logout:"Uitloggen",in:"Ingelogd ✓",out:"Uitgelogd",needLogin:"Log in om favorieten toe te voegen"},
+  sv:{logout:"Logga ut",in:"Inloggad ✓",out:"Utloggad",needLogin:"Logga in för att spara favoriter"},
+  pl:{logout:"Wyloguj",in:"Zalogowano ✓",out:"Wylogowano",needLogin:"Zaloguj się, aby dodać do ulubionych"},
+};
+// Keyword-rich, readable subheadline (SEO + clarity) + trust signals per lang.
+const SUBHEAD={
+  fr:"Comparez les prix Amazon en Europe et trouvez la meilleure offre en une seule recherche.",
+  en:"Compare Amazon prices across 8 European countries and find the best deal in a single search.",
+  de:"Vergleiche Amazon-Preise in 8 europäischen Ländern und finde mit einer Suche das beste Angebot.",
+  it:"Confronta i prezzi Amazon in 8 paesi europei e trova l'offerta migliore con una sola ricerca.",
+  es:"Compara los precios de Amazon en 8 países europeos y encuentra la mejor oferta en una sola búsqueda.",
+  nl:"Vergelijk Amazon-prijzen in 8 Europese landen en vind de beste deal met één zoekopdracht.",
+  sv:"Jämför Amazon-priser i 8 europeiska länder och hitta det bästa erbjudandet med en enda sökning.",
+  pl:"Porównaj ceny Amazon w 8 krajach europejskich i znajdź najlepszą ofertę w jednym wyszukiwaniu.",
+};
+const TRUST={
+  fr:["8 pays · 1 recherche","Gratuit, sans inscription","Prix actualisés chaque heure"],
+  en:["8 countries · 1 search","Free, no sign-up","Prices updated hourly"],
+  de:["8 Länder · 1 Suche","Kostenlos, ohne Anmeldung","Stündlich aktualisierte Preise"],
+  it:["8 paesi · 1 ricerca","Gratis, senza registrazione","Prezzi aggiornati ogni ora"],
+  es:["8 países · 1 búsqueda","Gratis, sin registro","Precios actualizados cada hora"],
+  nl:["8 landen · 1 zoekopdracht","Gratis, geen registratie","Prijzen elk uur bijgewerkt"],
+  sv:["8 länder · 1 sökning","Gratis, ingen registrering","Priser uppdateras varje timme"],
+  pl:["8 krajów · 1 wyszukiwanie","Za darmo, bez rejestracji","Ceny aktualizowane co godzinę"],
+};
+const state={currency:"EUR",lang:"fr",countries:new Set(ALL_COUNTRIES),favorites:new Set(),cards:[],carCards:[],products:[],view:"home",productById:{},popular:[],popularLoaded:false,loggedIn:false,user:null,pendingFav:null,theme:"light"};
+const $=s=>document.querySelector(s);
+function t(k){return I18N[state.lang][k];}
+function coName(c){return I18N[state.lang].co[c]||c;}
+function fmt(n,cur){return new Intl.NumberFormat(LOCALE[state.lang],{style:"currency",currency:cur}).format(n);}
+// convert an amount from one currency to another via EUR pivot (FX = units per EUR)
+function conv(amount,from,to){if(from===to)return amount;const eur=from==="EUR"?amount:amount/(FX[from]||1);return to==="EUR"?eur:eur*(FX[to]||1);}
+
+// real FX rates (same ECB source the backend uses) for the offline-demo path
+const FX={EUR:1,GBP:.86,USD:1.16,SEK:11.5,PLN:4.3,CHF:.95};
+async function loadFx(){try{const d=await fetch("https://api.frankfurter.app/latest?from=EUR&to=GBP,USD,SEK,PLN,CHF").then(r=>r.json());if(d&&d.rates)Object.assign(FX,{EUR:1},d.rates);}catch{}}
+let USING_SAMPLE=false;
+
+const SAMPLE={
+  sony:{title:"Sony WH-1000XM5",brand:"Sony",img:"https://picsum.photos/seed/B09Y2MGY1L/500/500",rating:4.6,reviews:47820,prices:[["ES",279],["DE",289],["SE",286],["FR",299],["IT",319],["UK",328]]},
+  airpods:{title:"Apple AirPods Pro (2)",brand:"Apple",img:"https://picsum.photos/seed/B0BDHWDR12/500/500",rating:4.7,reviews:12453,prices:[["UK",267],["ES",269],["DE",279],["NL",289],["FR",289],["IT",299]]},
+  kindle:{title:"Kindle Paperwhite (16 GB)",brand:"Amazon",img:"https://picsum.photos/seed/B08N3TCT4F/500/500",rating:4.6,reviews:89123,prices:[["DE",159.99],["UK",163]]},
+  nintendo:{title:"Nintendo Switch OLED",brand:"Nintendo",img:"https://picsum.photos/seed/B098RKWHHZ/500/500",rating:4.8,reviews:23456,prices:[["ES",319],["DE",329],["FR",339],["IT",349],["UK",359]]},
+  anker:{title:"Anker PowerCore 10000",brand:"Anker",img:"https://picsum.photos/seed/B0194WDVHI/500/500",rating:4.5,reviews:156234,prices:[["DE",19.99],["PL",20.7],["FR",21.99],["UK",22]]}
+};
+
+async function api(path,ms=12000){const c=new AbortController();const tm=setTimeout(()=>c.abort(),ms);
+  try{const r=await fetch(API_BASE+path,{signal:c.signal});if(!r.ok)throw new Error("HTTP "+r.status);return await r.json();}finally{clearTimeout(tm);}}
+function toast(m){const el=$("#toast");el.textContent=m;el.classList.add("show");setTimeout(()=>el.classList.remove("show"),2200);}
+
+// ── apply language to all static DOM ──
+function applyStatic(){
+  document.documentElement.lang=state.lang;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{const k=el.dataset.i18n;if(I18N[state.lang][k]!=null)el.textContent=I18N[state.lang][k];});
+  document.querySelectorAll("[data-i18n-ph]").forEach(el=>{const k=el.dataset.i18nPh;if(I18N[state.lang][k]!=null)el.placeholder=I18N[state.lang][k];});
+  document.querySelectorAll(".prov-lbl").forEach(el=>{el.textContent=t("au_cont")+el.dataset.provName;});
+  if($("#subhead"))$("#subhead").textContent=SUBHEAD[state.lang];
+  updateLocaleBtn();
+  const tb=$("#themeBtn");if(tb)tb.title=THEME_LABEL[state.lang][state.theme==='dark'?1:0];
+  refreshDemoNote();
+}
+function updateLocaleBtn(){const txt=$("#localeTxt");if(txt)txt.textContent=state.lang.toUpperCase()+" / "+(CUR_SYM[state.currency]||state.currency);const b=$("#localeBtn");if(b)b.title=t("st_title");}
+function applyTheme(theme){
+  const dark=theme==='dark';state.theme=dark?'dark':'light';
+  document.documentElement.setAttribute('data-theme',dark?'dark':'');
+  const b=$("#themeBtn");if(b){b.innerHTML=dark?ICON_SUN:ICON_MOON;b.title=THEME_LABEL[state.lang][dark?1:0];}
+  try{localStorage.setItem('ep_theme',state.theme);}catch{}
+}
+function toggleTheme(){applyTheme(state.theme==='dark'?'light':'dark');}
+function applyLanguage(lang){state.lang=lang;applyStatic();updateAuthUI();
+  // section title
+  if(state.view==="fav")$("#resultsTitle").textContent=t("sec_fav");
+  refreshMeta();
+  state.cards.forEach(renderCard);
+  rerenderCarousel();
+}
+
+/* ── modals ── */
+function openModal(id){$("#scrim").classList.add("open");$(id).classList.add("open");document.body.style.overflow="hidden";}
+function closeModals(){$("#scrim").classList.remove("open");document.querySelectorAll(".modal").forEach(m=>m.classList.remove("open"));document.body.style.overflow="";}
+$("#scrim").addEventListener("click",closeModals);
+document.querySelectorAll("[data-close]").forEach(b=>b.addEventListener("click",closeModals));
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModals();});
+
+function buildSettings(){
+  $("#countryOpts").innerHTML=ALL_COUNTRIES.map(c=>`<label class="opt"><input type="checkbox" data-c="${c}" ${state.countries.has(c)?"checked":""}><span class="fl">${flagHtml(c)}</span> ${coName(c)}</label>`).join("");
+  $("#langOpts").innerHTML=LANG_ORDER.map(l=>`<label class="opt"><input type="radio" name="lang" data-l="${l}" ${l===state.lang?"checked":""}> ${LANG_LABEL[l]}</label>`).join("");
+  $("#curOpts").innerHTML=CUR_CODES.map(code=>`<label class="opt"><input type="radio" name="cur" data-cur="${code}" ${code===state.currency?"checked":""}> ${I18N[state.lang].cu[code]}</label>`).join("");
+}
+$("#localeBtn").addEventListener("click",()=>{buildSettings();openModal("#settingsModal");});
+$("#themeBtn").addEventListener("click",toggleTheme);
+$("#applySettings").addEventListener("click",()=>{
+  const cs=new Set();document.querySelectorAll('#countryOpts input:checked').forEach(i=>cs.add(i.dataset.c));
+  if(cs.size===0){toast(t("t_pick"));return;}
+  const newCur=document.querySelector('#curOpts input:checked').dataset.cur;
+  const newLang=document.querySelector('#langOpts input:checked').dataset.l;
+  const curChanged=newCur!==state.currency;const langChanged=newLang!==state.lang;
+  state.countries=cs;state.currency=newCur;
+  closeModals();updateLocaleBtn();
+  if(langChanged)applyLanguage(newLang);
+  if(curChanged){refreshAllPrices();rerenderCarousel();}
+  else if(!langChanged)state.cards.forEach(renderCard);
+});
+
+let authMode="login";
+function openAuth(mode){authMode=mode;
+  $("#authTitle").textContent=mode==="login"?t("au_login"):t("au_signup");
+  $("#authSub").textContent=mode==="login"?t("au_login_sub"):t("au_signup_sub");
+  $("#nameField").style.display=mode==="signup"?"block":"none";
+  $("#authSubmit").textContent=mode==="login"?t("au_login_btn"):t("au_signup_btn");
+  $("#authSwitch").innerHTML=`<a id="authToggle">${mode==="login"?t("au_to_signup"):t("au_to_login")}</a>`;
+  $("#authToggle").addEventListener("click",()=>openAuth(mode==="login"?"signup":"login"));
+  openModal("#authModal");
+}
+$("#loginBtn").addEventListener("click",()=>openAuth("login"));
+$("#signupBtn").addEventListener("click",()=>openAuth("signup"));
+// Demo session (in-memory). Real auth is a future backend step; here, submitting
+// the form or picking a provider logs you in locally so the favourites flow works.
+$("#authForm").addEventListener("submit",e=>{e.preventDefault();const email=$("#authForm input[type=email]").value.trim();mockLogin(email||"compte");});
+document.querySelectorAll(".social button").forEach(b=>b.addEventListener("click",()=>mockLogin(b.dataset.prov)));
+$("#logoutBtn").addEventListener("click",logout);
+
+function mockLogin(label){
+  state.loggedIn=true;state.user={label};
+  closeModals();updateAuthUI();toast(AUTH_MSG[state.lang].in);
+  if(state.pendingFav){const pid=state.pendingFav;state.pendingFav=null;addFavorite(pid);}
+}
+function logout(){
+  state.loggedIn=false;state.user=null;state.favorites.clear();
+  document.querySelectorAll('.fav-btn.on').forEach(b=>{b.classList.remove('on');b.textContent='☆';});
+  $("#favPip").classList.remove("show");$("#favPip").textContent="0";
+  if(state.view==="fav")showHome();
+  updateAuthUI();toast(AUTH_MSG[state.lang].out);
+}
+function updateAuthUI(){
+  const li=state.loggedIn;
+  $("#navFav").style.display=li?"":"none";
+  $("#loginBtn").style.display=li?"none":"";
+  $("#signupBtn").style.display=li?"none":"";
+  $("#userBox").style.display=li?"":"none";
+  $("#logoutBtn").textContent=AUTH_MSG[state.lang].logout;
+  if(li){const lbl=state.user?.label||"compte";$("#userName").textContent=lbl;$("#uAvatar").textContent=(lbl[0]||"U").toUpperCase();}
+}
+
+/* ── nav & views ── */
+$("#logoBtn").addEventListener("click",showHome);
+$("#navSearch").addEventListener("click",()=>{showHome();$("#q").focus();});
+$("#navFav").addEventListener("click",showFav);
+function setActive(which){$("#navSearch").classList.toggle("active",which==="search");$("#navFav").classList.toggle("active",which==="fav");}
+function showHome(){state.view="home";setActive("search");$("#bestSection").style.display="";$("#resultsSection").style.display="none";window.scrollTo({top:0,behavior:"smooth"});if(!state.popularLoaded)loadPopular();try{history.replaceState(null,"",location.pathname);}catch{}}
+function showResults(){$("#bestSection").style.display="none";$("#resultsSection").style.display="";}
+function doSearch(q){if(!q)return;state.view="search";setActive("search");showResults();$("#resultsTitle").textContent="« "+q+" »";loadProducts([q]);
+  try{history.replaceState(null,"",location.pathname+"?q="+encodeURIComponent(q));}catch{}}
+function showFav(){state.view="fav";setActive("fav");showResults();$("#resultsTitle").textContent=t("sec_fav");
+  const favs=[...state.favorites].map(pid=>state.productById[pid]).filter(Boolean);
+  if(!favs.length){$("#grid").innerHTML=`<div class="state">${t("e_no_fav")}</div>`;$("#resultsMeta").textContent=t("m_favorites")(0);return;}
+  renderProducts(favs);
+}
+
+$("#apiLink").href=API_BASE+"/api/health";
+$("#form").addEventListener("submit",e=>{e.preventDefault();doSearch($("#q").value.trim());});
+document.querySelectorAll(".chip").forEach(c=>c.addEventListener("click",()=>{$("#q").value=c.dataset.q;doSearch(c.dataset.q);}));
+
+function refreshMeta(count,view){
+  const n=count!=null?count:state.products.length;const v=view||state.view;
+  if(v==="fav")$("#resultsMeta").textContent=t("m_favorites")(n);
+  else $("#resultsMeta").textContent=n?t("m_products")(n)+(USING_SAMPLE?t("m_demo"):""):t("m_results0");
+}
+
+async function loadProducts(terms){
+  state.view=state.view==="fav"?"home":state.view;
+  const grid=$("#grid");$("#resultsMeta").textContent=t("m_loading");
+  grid.innerHTML=terms.map(()=>'<div class="skeleton-card"></div>').join("");
+  const products=[];
+  await Promise.all(terms.map(async term=>{
+    try{const d=await api("/api/search?q="+encodeURIComponent(term));
+      if(d.results&&d.results[0]){const r=d.results[0];products.push({pid:r.productId,title:r.title,brand:r.brand,img:r.imageUrl,rating:r.rating,reviews:r.reviewCount,fallback:term});}
+      USING_SAMPLE=false;
+    }catch{const k=Object.keys(SAMPLE).find(x=>term.toLowerCase().includes(x))||term;const s=SAMPLE[k];
+      if(s){products.push({pid:"demo-"+k,title:s.title,brand:s.brand,img:s.img,rating:s.rating,reviews:s.reviews,fallback:k});USING_SAMPLE=true;}}
+  }));
+  refreshDemoNote();
+  renderProducts(products);
+}
+
+function renderProducts(products){
+  state.products=products;state.cards=[];const grid=$("#grid");
+  if(!products.length){grid.innerHTML=`<div class="state">${t("e_no_results")}</div>`;refreshMeta(0);return;}
+  refreshMeta(products.length);grid.innerHTML="";
+  products.forEach((p,i)=>{state.productById[p.pid]=p;const el=document.createElement("article");el.className="card";el.style.animationDelay=(i*70)+"ms";grid.appendChild(el);
+    const ref={el,product:p,cmp:null};state.cards.push(ref);renderCard(ref);loadPrices(ref);});
+}
+
+function renderCard(ref){
+  const p=ref.product,cmp=ref.cmp,isFav=state.favorites.has(p.pid);
+  let leagueHtml='<div class="sk"></div><div class="sk"></div><div class="sk"></div>';
+  if(cmp){
+    let rows=cmp.rows.filter(r=>state.countries.has(r.m)).sort((a,b)=>a.amount-b.amount);
+    if(!rows.length)leagueHtml=`<div class="more" style="cursor:default">${t("c_none")}</div>`;
+    else{
+      const cheap=rows[0],dear=rows[rows.length-1];
+      const sav=rows.length>1&&dear.amount>cheap.amount?{a:Math.round((dear.amount-cheap.amount)*100)/100,p:Math.round((1-cheap.amount/dear.amount)*100),c:cheap.m,d:dear.m}:null;
+      const shown=rows.slice(0,5),hidden=rows.length-shown.length;
+      const row=(r,i)=>`<a class="prow ${i===0?'best':''}" href="${r.url&&r.url!=='#'?r.url:'#'}" ${r.url&&r.url!=='#'?'target="_blank" rel="noopener"':'onclick="return false"'}>${i===0?`<span class="bestchip">${BEST_LBL[state.lang]}</span>`:''}<span class="rk">${String(i+1).padStart(2,'0')}</span><span class="fl">${flagHtml(r.m)}</span><span class="cn">${coName(r.m)}${!r.inStock?`<span class="oos">${t("c_oos")}</span>`:''}</span><span class="pa">${fmt(r.amount,cmp.currency)}</span><span class="go">↗</span></a>`;
+      leagueHtml=shown.map(row).join("");
+      if(hidden>0)leagueHtml+=`<div class="more" data-all="1">${t("c_more")(hidden)}</div>`;
+      leagueHtml+=freshLine(rows);
+      if(sav)leagueHtml+=`<div class="csave"><span class="arrow">↓</span><span class="txt"><b>${t("c_save")} ${fmt(sav.a,cmp.currency)}</b><br>${t("c_save_sub")(sav.p,coName(sav.c),coName(sav.d))}</span></div>`;
+      ref._rows=rows;ref._sav=sav;
+    }
+  }
+  ref.el.innerHTML=`
+    <button class="fav fav-btn ${isFav?'on':''}" data-pid="${p.pid}">${isFav?'★':'☆'}</button>
+    <div class="cimg-top"><img src="${p.img||''}" alt="${(p.brand?p.brand+' ':'')+(p.title||'')}" loading="lazy" onerror="this.style.opacity=0"></div>
+    <div class="cmeta"><div class="brand">${p.brand||'—'}</div><div class="ttl">${p.title}</div>
+      ${p.rating?`<div class="rating">★ ${p.rating} · ${(p.reviews||0).toLocaleString(LOCALE[state.lang])} ${t("c_reviews")}</div>`:''}</div>
+    <div class="league">${leagueHtml}</div>
+    <div class="cshare">
+      <span class="sh-label" title="${t("c_share")}">${ICON_SHARE}</span>
+      <a class="sh-wa shx" title="${SHARE_T[state.lang].on} WhatsApp" target="_blank" rel="noopener">${ICON_WA}</a>
+      <a class="sh-fb shx" title="${SHARE_T[state.lang].on} Facebook" target="_blank" rel="noopener">${ICON_FB}</a>
+      <a class="sh-x shx" title="${SHARE_T[state.lang].on} X" target="_blank" rel="noopener">${ICON_X}</a>
+      <a class="sh-tg shx" title="${SHARE_T[state.lang].on} Telegram" target="_blank" rel="noopener">${ICON_TG}</a>
+      <a class="sh-cp shx" title="${SHARE_T[state.lang].copy}">${ICON_LINK}</a>
+    </div>`;
+  ref.el.querySelector(".fav").addEventListener("click",ev=>{ev.stopPropagation();toggleFavorite(p.pid);});
+  const more=ref.el.querySelector(".more[data-all]");
+  if(more)more.addEventListener("click",()=>{
+    const rows=ref._rows,sav=ref._sav,cur=ref.cmp.currency;
+    const row=(r,i)=>`<a class="prow ${i===0?'best':''}" href="${r.url&&r.url!=='#'?r.url:'#'}" ${r.url&&r.url!=='#'?'target="_blank" rel="noopener"':'onclick="return false"'}>${i===0?`<span class="bestchip">${BEST_LBL[state.lang]}</span>`:''}<span class="rk">${String(i+1).padStart(2,'0')}</span><span class="fl">${flagHtml(r.m)}</span><span class="cn">${coName(r.m)}${!r.inStock?`<span class="oos">${t("c_oos")}</span>`:''}</span><span class="pa">${fmt(r.amount,cur)}</span><span class="go">↗</span></a>`;
+    let h=rows.map(row).join("");h+=freshLine(rows);if(sav)h+=`<div class="csave"><span class="arrow">↓</span><span class="txt"><b>${t("c_save")} ${fmt(sav.a,cur)}</b><br>${t("c_save_sub")(sav.p,coName(sav.c),coName(sav.d))}</span></div>`;
+    ref.el.querySelector(".league").innerHTML=h;
+  });
+  // share
+  const rows=ref._rows;const best=rows&&rows[0];const url=(best&&best.url&&best.url!=='#')?best.url:API_BASE;
+  const enc=encodeURIComponent(url);
+  const txt=encodeURIComponent(p.title+" — "+(best?fmt(best.amount,ref.cmp.currency):"")+" · Kompalo");
+  const wa=ref.el.querySelector(".sh-wa"),fb=ref.el.querySelector(".sh-fb"),x=ref.el.querySelector(".sh-x"),tg=ref.el.querySelector(".sh-tg"),cp=ref.el.querySelector(".sh-cp");
+  if(wa)wa.href=`https://wa.me/?text=${txt}%20${enc}`;
+  if(fb)fb.href=`https://www.facebook.com/sharer/sharer.php?u=${enc}`;
+  if(x)x.href=`https://twitter.com/intent/tweet?text=${txt}&url=${enc}`;
+  if(tg)tg.href=`https://t.me/share/url?url=${enc}&text=${txt}`;
+  if(cp)cp.onclick=()=>{navigator.clipboard&&navigator.clipboard.writeText(url);toast(t("t_copied"));};
+}
+
+function toggleFavorite(pid){
+  if(!state.loggedIn){state.pendingFav=pid;toast(AUTH_MSG[state.lang].needLogin);openAuth("login");return;}
+  if(state.favorites.has(pid)){state.favorites.delete(pid);syncFavBtns(pid);updateFavPip();if(state.view==="fav")showFav();}
+  else{addFavorite(pid);}
+}
+function addFavorite(pid){state.favorites.add(pid);syncFavBtns(pid);updateFavPip();if(state.view==="fav")showFav();}
+function syncFavBtns(pid){const on=state.favorites.has(pid);document.querySelectorAll(`.fav-btn[data-pid="${pid}"]`).forEach(b=>{b.classList.toggle("on",on);b.textContent=on?'★':'☆';});}
+function updateFavPip(){const pip=$("#favPip");pip.textContent=state.favorites.size;pip.classList.toggle("show",state.favorites.size>0);}
+
+async function loadPrices(ref){
+  let cmp=null;
+  if(!String(ref.product.pid).startsWith("demo-")){try{cmp=await fetchCompare(ref.product.pid,state.currency);}catch{cmp=null;}}
+  if(!cmp)cmp=sampleCompare(ref.product.fallback,state.currency);
+  ref.cmp=cmp;renderCard(ref);
+}
+function refreshAllPrices(){for(const c of state.cards)loadPrices(c);}
+async function fetchCompare(id,cur){
+  const d=await api("/api/compare/"+encodeURIComponent(id)+"?currency="+cur,13000);
+  return {currency:d.displayCurrency,rows:d.prices.filter(x=>x.displayPrice).map(x=>({m:x.marketplace,amount:x.displayPrice.amount,inStock:x.inStock,url:x.url,updatedAt:x.updatedAt}))};
+}
+function sampleCompare(key,cur){
+  const s=SAMPLE[key]||SAMPLE.sony;
+  const rows=s.prices.map(([m,eur])=>({m,amount:Math.round(eur*FX[cur]*100)/100,inStock:true,url:"#"})).sort((a,b)=>a.amount-b.amount);
+  return {currency:cur,rows};
+}
+
+// ── best-sellers carousel ──
+async function loadPopular(){
+  const car=$("#carousel");
+  car.innerHTML=Array.from({length:6},()=>'<div class="car-skel"></div>').join("");
+  let products=[];
+  try{const d=await api("/api/popular?limit=12",15000);products=d.products||[];if(products.length)USING_SAMPLE=false;}
+  catch{ products=Object.entries(SAMPLE).map(([k,s])=>({productId:"demo-"+k,title:s.title,brand:s.brand,imageUrl:s.img,
+      listings:s.prices.map(([m,eur])=>({marketplace:m,amount:eur,currency:"EUR",inStock:true,url:"#"})),_k:k})); USING_SAMPLE=true; }
+  if(!products.length){ // live returned nothing yet → fall back to sample
+    products=Object.entries(SAMPLE).map(([k,s])=>({productId:"demo-"+k,title:s.title,brand:s.brand,imageUrl:s.img,
+      listings:s.prices.map(([m,eur])=>({marketplace:m,amount:eur,currency:"EUR",inStock:true,url:"#"})),_k:k})); USING_SAMPLE=true;
+  }
+  state.popularLoaded=true;
+  refreshDemoNote();
+  renderCarousel(products);
+  startCarousel();
+}
+function rerenderCarousel(){state.carCards.forEach(renderCarouselCard);}
+
+// Carousel cards use the SAME full card + per-country price league as the grid
+// (renderCard). Rows are built from /api/popular listings, converted client-side
+// to the chosen display currency.
+function renderCarousel(products){
+  state.popular=products;const car=$("#carousel");car.innerHTML="";carState.pos=0;car.scrollLeft=0;state.carCards=[];
+  products.forEach((p,i)=>{
+    const product={pid:p.productId,title:p.title,brand:p.brand,img:p.imageUrl,
+      fallback:(p._k||String(p.title||'').split(' ')[0].toLowerCase())};
+    state.productById[product.pid]=product;
+    const el=document.createElement("article");el.className="card cc-card";el.style.animationDelay=(i*45)+"ms";
+    const ref={el,product,listings:p.listings,cmp:null};
+    state.carCards.push(ref);
+    renderCarouselCard(ref);
+    car.appendChild(el);
+  });
+}
+function renderCarouselCard(ref){
+  const rows=(ref.listings||[]).map(l=>({m:l.marketplace,amount:conv(l.amount,l.currency,state.currency),inStock:l.inStock,url:l.url,updatedAt:l.priceUpdatedAt})).sort((a,b)=>a.amount-b.amount);
+  ref.cmp={currency:state.currency,rows};
+  renderCard(ref);
+}
+
+// ping-pong autoplay: starts 5s after load, ~38px/s, pauses 5s at each end,
+// and pauses on hover or while the search box is focused/typed in.
+const CAR_SPEED=38;
+const carState={dir:1,pos:0,hover:false,searching:false,endPauseUntil:0,last:0,started:false};
+function carMax(){const c=$("#carousel");return Math.max(0,c.scrollWidth-c.clientWidth);}
+function carTick(ts){
+  if(!carState.last)carState.last=ts;
+  const dt=Math.min(0.05,(ts-carState.last)/1000);carState.last=ts;
+  const paused=REDUCED_MOTION||state.view!=="home"||carState.hover||carState.searching||ts<carState.endPauseUntil;
+  const c=$("#carousel");
+  if(!paused){
+    const max=carMax();
+    if(max>0){
+      carState.pos+=carState.dir*CAR_SPEED*dt;
+      if(carState.pos>=max){carState.pos=max;carState.dir=-1;carState.endPauseUntil=ts+5000;}
+      else if(carState.pos<=0){carState.pos=0;carState.dir=1;carState.endPauseUntil=ts+5000;}
+      c.scrollLeft=carState.pos;
+    }
+  }else{carState.pos=c.scrollLeft;}
+  requestAnimationFrame(carTick);
+}
+function startCarousel(){if(carState.started)return;carState.started=true;
+  requestAnimationFrame(ts=>{carState.last=ts;carState.endPauseUntil=ts+5000;carTick(ts);}); // initial 5s wait
+}
+function carNudge(d){const c=$("#carousel");carState.pos=Math.max(0,Math.min(carMax(),c.scrollLeft+d*280));c.scrollTo({left:carState.pos,behavior:REDUCED_MOTION?"auto":"smooth"});carState.dir=d>0?1:-1;requestAnimationFrame(ts=>carState.endPauseUntil=ts+4000);}
+
+$("#carousel").addEventListener("mouseenter",()=>carState.hover=true);
+$("#carousel").addEventListener("mouseleave",()=>carState.hover=false);
+$("#q").addEventListener("focus",()=>carState.searching=true);
+$("#q").addEventListener("input",()=>carState.searching=true);
+$("#q").addEventListener("blur",()=>{carState.searching=false;});
+$("#carPrev").addEventListener("click",()=>carNudge(-1));
+$("#carNext").addEventListener("click",()=>carNudge(1));
+
+// ── SEO: structured data (WebSite + SearchAction → Google sitelinks search box) ──
+function injectJsonLd(){
+  try{
+    const origin=(location.origin&&location.origin!=="null")?location.origin:"https://kompalo.com";
+    const ld={"@context":"https://schema.org","@type":"WebSite","name":"Kompalo",
+      "url":origin+"/","inLanguage":["fr","en","de","it","es","nl","sv","pl"],
+      "description":"Comparateur de prix Amazon dans 8 pays européens.",
+      "potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":origin+"/?q={search_term_string}"},"query-input":"required name=search_term_string"}};
+    const s=document.createElement("script");s.type="application/ld+json";s.textContent=JSON.stringify(ld);document.head.appendChild(s);
+  }catch{}
+}
+
+// ── init ──
+(async()=>{
+  // Per-language pages inject window.__LANG__ so the UI renders in that language
+  // immediately (and matches the URL crawlers indexed).
+  if(window.__LANG__ && LANG_ORDER.includes(window.__LANG__)) state.lang=window.__LANG__;
+  let savedTheme='light';try{savedTheme=localStorage.getItem('ep_theme')||'light';}catch{}
+  applyTheme(savedTheme);
+  applyStatic();updateAuthUI();injectJsonLd();
+  try{const h=await api("/api/health/live",6000);DEMO_BANNER=(h&&h.paapiMode==="mock");}catch{USING_SAMPLE=true;}
+  refreshDemoNote();
+  await loadFx();
+  showHome();
+  // Shareable / indexable search URLs: ?q=... runs the search on load.
+  const qp=new URLSearchParams(location.search).get("q");
+  if(qp){$("#q").value=qp;doSearch(qp);}
+})();
+</script>
+</body>
+</html>
