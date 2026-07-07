@@ -1,0 +1,60 @@
+name: Build & deploy Kompalo
+
+# Rebuilds the site and publishes it to GitHub Pages.
+# Runs on every push to main, once a day (to refresh prices + FX rates), and
+# on demand from the Actions tab ("Run workflow"). No secrets or tokens needed.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+  schedule:
+    - cron: '17 5 * * *' # 05:17 UTC daily — pulls fresh /api/popular + FX rates
+
+# Permissions the deploy step needs (nothing more).
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never run two deploys at once; a newer run supersedes an in-flight one.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Build the static site
+        env:
+          # Public site origin — used for canonical/hreflang/sitemap URLs.
+          # When the custom domain goes live, change this to https://kompalo.com
+          # (and add a CNAME file). Nothing else needs to change.
+          SITE_BASE: https://naiijah.github.io/kompalo
+          OUT_DIR: ${{ github.workspace }}/_site
+          # NOINDEX defaults to on while the API serves demo prices. Once real
+          # Amazon prices are live, set this repo variable to "false" (Settings →
+          # Secrets and variables → Actions → Variables) to let Google index the
+          # product pages.
+          NOINDEX: ${{ vars.NOINDEX || 'true' }}
+        run: |
+          node frontend/build-all.mjs
+          touch "$OUT_DIR/.nojekyll"
+          echo "Built $(find "$OUT_DIR" -name index.html | wc -l) pages"
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deploy
+        uses: actions/deploy-pages@v4
