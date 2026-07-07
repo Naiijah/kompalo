@@ -852,11 +852,15 @@ $("#carNext").addEventListener("click",()=>carNudge(1));
 // ── SEO: structured data (WebSite + SearchAction → Google sitelinks search box) ──
 function injectJsonLd(){
   try{
-    const origin=(location.origin&&location.origin!=="null")?location.origin:"https://kompalo.com";
+    // Site root from the x-default hreflang (build-injected, correct under any
+    // host incl. the /kompalo/ GitHub Pages subpath and the future kompalo.com).
+    const root=document.querySelector('link[rel="alternate"][hreflang="x-default"]')?.href
+      || (location.origin&&location.origin!=="null"?location.origin+"/":"https://kompalo.com/");
+    const base=root.replace(/\/+$/,"");
     const ld={"@context":"https://schema.org","@type":"WebSite","name":"Kompalo",
-      "url":origin+"/","inLanguage":["fr","en","de","it","es","nl","sv","pl"],
+      "url":base+"/","inLanguage":["fr","en","de","it","es","nl","sv","pl"],
       "description":"Comparateur de prix Amazon dans 8 pays européens.",
-      "potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":origin+"/?q={search_term_string}"},"query-input":"required name=search_term_string"}};
+      "potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":base+"/?q={search_term_string}"},"query-input":"required name=search_term_string"}};
     const s=document.createElement("script");s.type="application/ld+json";s.textContent=JSON.stringify(ld);document.head.appendChild(s);
   }catch{}
 }
