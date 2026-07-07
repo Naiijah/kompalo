@@ -160,6 +160,8 @@ function pageHtml(p, lang, slug, allSlugsAlternates) {
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23df4324'/%3E%3Ctext x='50' y='52' dy='.35em' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-size='66' fill='%23fff'%3EK%3C/text%3E%3C/svg%3E" />
+<meta name="theme-color" content="#df4324" />
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}" />
 <meta name="robots" content="${NOINDEX ? 'noindex,follow' : 'index,follow'}" />

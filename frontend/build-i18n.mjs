@@ -12,7 +12,7 @@
 //   OUT_DIR    output directory (default: alongside the source). When set to a
 //              different folder, the processed FRENCH root page is emitted too,
 //              so OUT_DIR is a complete deployable site.
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, cpSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
 
@@ -124,5 +124,12 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://w
 mkdirSync(OUT, { recursive: true });
 writeFileSync(join(OUT, 'sitemap.xml'), sitemap, 'utf8');
 writeFileSync(join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${BASE}/sitemap.xml\n`, 'utf8');
+
+// Static assets (og:image, and anything else under frontend/assets) → OUT/assets.
+// Skipped for in-place builds where they already sit alongside the source.
+const assetsSrc = join(DIR, 'assets');
+if (existsSync(assetsSrc) && resolve(assetsSrc) !== resolve(OUT, 'assets')) {
+  cpSync(assetsSrc, join(OUT, 'assets'), { recursive: true });
+}
 
 console.log(`i18n: built ${count} language pages + sitemap.xml + robots.txt (BASE=${BASE}, OUT=${OUT})`);
