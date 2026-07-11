@@ -6,19 +6,19 @@
 <!-- Brand favicon: white "K" on a vermilion rounded square (inline, no extra request). -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23df4324'/%3E%3Ctext x='50' y='52' dy='.35em' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-size='66' fill='%23fff'%3EK%3C/text%3E%3C/svg%3E" />
 <meta name="theme-color" content="#df4324" />
-<title>Kompalo — Comparateur de prix Amazon dans 8 pays européens</title>
+<title>Kompalo : Comparateur de prix Amazon dans 8 pays européens</title>
 <meta name="description" content="Comparez les prix Amazon dans 8 pays européens (Allemagne, France, Italie, Espagne, Pays-Bas, Suède, Pologne, Royaume-Uni) et trouvez le meilleur prix en une recherche. Gratuit, sans inscription, prix actualisés chaque heure." />
 <meta name="robots" content="index,follow" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Kompalo — le meilleur prix Amazon, partout en Europe" />
+<meta property="og:title" content="Kompalo : le meilleur prix Amazon, partout en Europe" />
 <meta property="og:description" content="Un produit, huit marketplaces Amazon européennes, le meilleur prix. Gratuit et sans inscription." />
 <meta property="og:locale" content="fr_FR" />
 <meta property="og:image" content="https://kompalo.com/assets/og.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Kompalo — comparateur de prix Amazon en Europe" />
+<meta property="og:image:alt" content="Kompalo : comparateur de prix Amazon en Europe" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Kompalo — le meilleur prix Amazon en Europe" />
+<meta name="twitter:title" content="Kompalo : le meilleur prix Amazon en Europe" />
 <meta name="twitter:description" content="Comparez les prix Amazon dans 8 pays européens en une recherche." />
 <meta name="twitter:image" content="https://kompalo.com/assets/og.png" />
 <link rel="canonical" href="https://kompalo.com/" />
@@ -316,7 +316,7 @@
       <button class="auth-submit" id="authSubmit" type="submit">Se connecter</button>
     </form>
     <p class="auth-switch" id="authSwitch"></p>
-    <div class="auth-note" data-i18n="au_note">🔒 Aperçu de l'interface. La connexion réelle nécessite un système d'authentification dédié — prévu pour une prochaine étape.</div>
+    <div class="auth-note" data-i18n="au_note">🔒 Aperçu de l'interface. La connexion réelle nécessite un système d'authentification dédié, prévu pour une prochaine étape.</div>
   </div>
 </div>
 <div class="toast" id="toast"></div>
@@ -361,7 +361,7 @@ function refreshDemoNote(){
   el.textContent=DEMO_NOTE[state.lang];
   el.classList.toggle('show', DEMO_BANNER||USING_SAMPLE);
 }
-// "il y a 2 h" — localized relative time for price freshness
+// "il y a 2 h", localized relative time for price freshness
 function relTime(iso){
   try{
     const then=new Date(iso).getTime();if(!isFinite(then))return "";
@@ -394,11 +394,11 @@ const I18N={
     hero_t1:"Obtiens le",hero_t2:"meilleur prix",hero_tag:"Renseignement tarifaire transfrontalier sur les marketplaces Amazon européennes. Un produit, huit pays, le meilleur prix.",
     s_kicker:"Quel produit cherchez-vous au meilleur prix ?",s_btn:"Comparer →",s_ph:"Sony WH-1000XM5, AirPods, Kindle…",s_try:"Essayez :",
     sec_best:"Meilleures ventes",sec_fav:"Tes favoris",m_loading:"chargement…",m_demo:" · démo",m_products:n=>n+" produit"+(n>1?"s":""),m_results0:"Aucun résultat",m_favorites:n=>n+" favori"+(n>1?"s":""),
-    c_reviews:"avis",c_share:"Partager",c_copy:"Copier",c_oos:"rupture",c_more:n=>"+ "+n+" autre"+(n>1?"s":"")+" pays ▾",c_save:"Économisez",c_save_sub:(p,a,b)=>p+"% — "+a+" vs "+b,c_none:"Aucun prix pour les pays sélectionnés",
+    c_reviews:"avis",c_share:"Partager",c_copy:"Copier",c_oos:"rupture",c_more:n=>"+ "+n+" autre"+(n>1?"s":"")+" pays ▾",c_save:"Économisez",c_save_sub:(p,a,b)=>p+"%, "+a+" vs "+b,c_none:"Aucun prix pour les pays sélectionnés",
     e_no_results:"Aucun résultat. Essayez un autre terme.",e_no_fav:"Aucun favori pour l'instant. Cliquez sur ☆ d'un produit pour l'ajouter.",
     st_title:"Paramètres",st_countries:"Afficher uniquement les prix de",st_lang:"Langue",st_cur:"Devise",st_cancel:"Annuler",st_ok:"OK",
     au_login:"Se connecter",au_signup:"Créer un compte",au_login_sub:"Accédez à vos favoris et alertes de prix sur tous vos appareils.",au_signup_sub:"Créez votre compte pour sauvegarder vos favoris et suivre les baisses de prix.",
-    au_or:"ou",au_name:"Nom",au_email:"Email",au_pass:"Mot de passe",au_cont:"Continuer avec ",au_login_btn:"Se connecter",au_signup_btn:"Créer mon compte",au_to_signup:"Pas encore de compte ? Inscrivez-vous",au_to_login:"Déjà un compte ? Connectez-vous",au_note:"🔒 Aperçu de l'interface. La connexion réelle nécessite un système d'authentification dédié — prévu pour une prochaine étape.",
+    au_or:"ou",au_name:"Nom",au_email:"Email",au_pass:"Mot de passe",au_cont:"Continuer avec ",au_login_btn:"Se connecter",au_signup_btn:"Créer mon compte",au_to_signup:"Pas encore de compte ? Inscrivez-vous",au_to_login:"Déjà un compte ? Connectez-vous",au_note:"🔒 Aperçu de l'interface. La connexion réelle nécessite un système d'authentification dédié, prévu pour une prochaine étape.",
     f_disclosure:"En tant que Partenaire Amazon, Kompalo perçoit une commission sur les achats remplissant les conditions requises.",f_copyright:"Copyright © Kompalo 2026",f_legal:"Informations légales",f_privacy:"Confidentialité",f_api:"État de l'API ↗",f_cookies:"Cookies",f_contact:"Contact",
     t_copied:"Lien copié",t_pick:"Sélectionnez au moins un pays",t_auth:p=>p+" : authentification bientôt disponible",
     co:{DE:"Allemagne",UK:"Royaume-Uni",FR:"France",ES:"Espagne",IT:"Italie",SE:"Suède",NL:"Pays-Bas",PL:"Pologne"},
@@ -407,11 +407,11 @@ const I18N={
     hero_t1:"Get the",hero_t2:"best price",hero_tag:"Cross-border price intelligence across the European Amazon marketplaces. One product, eight countries, the best price.",
     s_kicker:"Which product do you want at the best price?",s_btn:"Compare →",s_ph:"Sony WH-1000XM5, AirPods, Kindle…",s_try:"Try:",
     sec_best:"Best sellers",sec_fav:"Your favourites",m_loading:"loading…",m_demo:" · demo",m_products:n=>n+" product"+(n>1?"s":""),m_results0:"No results",m_favorites:n=>n+" favourite"+(n>1?"s":""),
-    c_reviews:"reviews",c_share:"Share",c_copy:"Copy",c_oos:"out of stock",c_more:n=>"+ "+n+" more countr"+(n>1?"ies":"y")+" ▾",c_save:"Save",c_save_sub:(p,a,b)=>p+"% — "+a+" vs "+b,c_none:"No prices for the selected countries",
+    c_reviews:"reviews",c_share:"Share",c_copy:"Copy",c_oos:"out of stock",c_more:n=>"+ "+n+" more countr"+(n>1?"ies":"y")+" ▾",c_save:"Save",c_save_sub:(p,a,b)=>p+"%, "+a+" vs "+b,c_none:"No prices for the selected countries",
     e_no_results:"No results. Try another term.",e_no_fav:"No favourites yet. Click ☆ on a product to add it.",
     st_title:"Settings",st_countries:"Only show prices from",st_lang:"Language",st_cur:"Currency",st_cancel:"Cancel",st_ok:"OK",
     au_login:"Log in",au_signup:"Sign up",au_login_sub:"Access your favourites and price alerts on all your devices.",au_signup_sub:"Create your account to save favourites and track price drops.",
-    au_or:"or",au_name:"Name",au_email:"Email",au_pass:"Password",au_cont:"Continue with ",au_login_btn:"Log in",au_signup_btn:"Create my account",au_to_signup:"No account yet? Sign up",au_to_login:"Already have an account? Log in",au_note:"🔒 Interface preview. Real sign-in requires a dedicated authentication system — planned for a future step.",
+    au_or:"or",au_name:"Name",au_email:"Email",au_pass:"Password",au_cont:"Continue with ",au_login_btn:"Log in",au_signup_btn:"Create my account",au_to_signup:"No account yet? Sign up",au_to_login:"Already have an account? Log in",au_note:"🔒 Interface preview. Real sign-in requires a dedicated authentication system, planned for a future step.",
     f_disclosure:"As an Amazon Associate, Kompalo earns a commission on qualifying purchases.",f_copyright:"Copyright © Kompalo 2026",f_legal:"Legal notice",f_privacy:"Privacy",f_api:"API status ↗",f_cookies:"Cookies",f_contact:"Contact",
     t_copied:"Link copied",t_pick:"Select at least one country",t_auth:p=>p+": sign-in coming soon",
     co:{DE:"Germany",UK:"United Kingdom",FR:"France",ES:"Spain",IT:"Italy",SE:"Sweden",NL:"Netherlands",PL:"Poland"},
@@ -420,11 +420,11 @@ const I18N={
     hero_t1:"Hol dir den",hero_t2:"besten Preis",hero_tag:"Grenzüberschreitende Preisanalyse über die europäischen Amazon-Marketplaces. Ein Produkt, acht Länder, der beste Preis.",
     s_kicker:"Welches Produkt möchtest du zum besten Preis?",s_btn:"Vergleichen →",s_ph:"Sony WH-1000XM5, AirPods, Kindle…",s_try:"Probier:",
     sec_best:"Bestseller",sec_fav:"Deine Favoriten",m_loading:"lädt…",m_demo:" · Demo",m_products:n=>n+" Produkt"+(n>1?"e":""),m_results0:"Keine Ergebnisse",m_favorites:n=>n+" Favorit"+(n>1?"en":""),
-    c_reviews:"Bewertungen",c_share:"Teilen",c_copy:"Kopieren",c_oos:"nicht verfügbar",c_more:n=>"+ "+n+" weitere"+(n>1?"":"s")+" Land ▾",c_save:"Spare",c_save_sub:(p,a,b)=>p+"% — "+a+" statt "+b,c_none:"Keine Preise für die gewählten Länder",
+    c_reviews:"Bewertungen",c_share:"Teilen",c_copy:"Kopieren",c_oos:"nicht verfügbar",c_more:n=>"+ "+n+" weitere"+(n>1?"":"s")+" Land ▾",c_save:"Spare",c_save_sub:(p,a,b)=>p+"%, "+a+" statt "+b,c_none:"Keine Preise für die gewählten Länder",
     e_no_results:"Keine Ergebnisse. Versuche einen anderen Begriff.",e_no_fav:"Noch keine Favoriten. Klicke auf ☆ eines Produkts, um es hinzuzufügen.",
     st_title:"Einstellungen",st_countries:"Nur Preise anzeigen aus",st_lang:"Sprache",st_cur:"Währung",st_cancel:"Abbrechen",st_ok:"OK",
     au_login:"Anmelden",au_signup:"Konto erstellen",au_login_sub:"Greife auf all deinen Geräten auf Favoriten und Preisalarme zu.",au_signup_sub:"Erstelle dein Konto, um Favoriten zu speichern und Preissenkungen zu verfolgen.",
-    au_or:"oder",au_name:"Name",au_email:"E-Mail",au_pass:"Passwort",au_cont:"Weiter mit ",au_login_btn:"Anmelden",au_signup_btn:"Konto erstellen",au_to_signup:"Noch kein Konto? Registrieren",au_to_login:"Schon ein Konto? Anmelden",au_note:"🔒 Vorschau der Oberfläche. Echte Anmeldung erfordert ein eigenes Authentifizierungssystem — für einen späteren Schritt geplant.",
+    au_or:"oder",au_name:"Name",au_email:"E-Mail",au_pass:"Passwort",au_cont:"Weiter mit ",au_login_btn:"Anmelden",au_signup_btn:"Konto erstellen",au_to_signup:"Noch kein Konto? Registrieren",au_to_login:"Schon ein Konto? Anmelden",au_note:"🔒 Vorschau der Oberfläche. Echte Anmeldung erfordert ein eigenes Authentifizierungssystem, für einen späteren Schritt geplant.",
     f_disclosure:"Als Amazon-Partner verdient Kompalo an qualifizierten Käufen eine Provision.",f_copyright:"Copyright © Kompalo 2026",f_legal:"Impressum",f_privacy:"Datenschutz",f_api:"API-Status ↗",f_cookies:"Cookies",f_contact:"Kontakt",
     t_copied:"Link kopiert",t_pick:"Wähle mindestens ein Land",t_auth:p=>p+": Anmeldung bald verfügbar",
     co:{DE:"Deutschland",UK:"Vereinigtes Königreich",FR:"Frankreich",ES:"Spanien",IT:"Italien",SE:"Schweden",NL:"Niederlande",PL:"Polen"},
@@ -433,11 +433,11 @@ const I18N={
     hero_t1:"Ottieni il",hero_t2:"prezzo migliore",hero_tag:"Analisi dei prezzi transfrontaliera sui marketplace Amazon europei. Un prodotto, otto paesi, il prezzo migliore.",
     s_kicker:"Quale prodotto cerchi al prezzo migliore?",s_btn:"Confronta →",s_ph:"Sony WH-1000XM5, AirPods, Kindle…",s_try:"Prova:",
     sec_best:"Più venduti",sec_fav:"I tuoi preferiti",m_loading:"caricamento…",m_demo:" · demo",m_products:n=>n+" prodott"+(n>1?"i":"o"),m_results0:"Nessun risultato",m_favorites:n=>n+" preferit"+(n>1?"i":"o"),
-    c_reviews:"recensioni",c_share:"Condividi",c_copy:"Copia",c_oos:"esaurito",c_more:n=>"+ "+n+" altro"+(n>1?"i":"")+" paes"+(n>1?"i":"e")+" ▾",c_save:"Risparmia",c_save_sub:(p,a,b)=>p+"% — "+a+" vs "+b,c_none:"Nessun prezzo per i paesi selezionati",
+    c_reviews:"recensioni",c_share:"Condividi",c_copy:"Copia",c_oos:"esaurito",c_more:n=>"+ "+n+" altro"+(n>1?"i":"")+" paes"+(n>1?"i":"e")+" ▾",c_save:"Risparmia",c_save_sub:(p,a,b)=>p+"%, "+a+" vs "+b,c_none:"Nessun prezzo per i paesi selezionati",
     e_no_results:"Nessun risultato. Prova un altro termine.",e_no_fav:"Ancora nessun preferito. Clicca su ☆ di un prodotto per aggiungerlo.",
     st_title:"Impostazioni",st_countries:"Mostra solo i prezzi di",st_lang:"Lingua",st_cur:"Valuta",st_cancel:"Annulla",st_ok:"OK",
     au_login:"Accedi",au_signup:"Registrati",au_login_sub:"Accedi ai tuoi preferiti e agli avvisi di prezzo su tutti i dispositivi.",au_signup_sub:"Crea il tuo account per salvare i preferiti e seguire i cali di prezzo.",
-    au_or:"oppure",au_name:"Nome",au_email:"Email",au_pass:"Password",au_cont:"Continua con ",au_login_btn:"Accedi",au_signup_btn:"Crea il mio account",au_to_signup:"Non hai un account? Registrati",au_to_login:"Hai già un account? Accedi",au_note:"🔒 Anteprima dell'interfaccia. L'accesso reale richiede un sistema di autenticazione dedicato — previsto per una fase successiva.",
+    au_or:"oppure",au_name:"Nome",au_email:"Email",au_pass:"Password",au_cont:"Continua con ",au_login_btn:"Accedi",au_signup_btn:"Crea il mio account",au_to_signup:"Non hai un account? Registrati",au_to_login:"Hai già un account? Accedi",au_note:"🔒 Anteprima dell'interfaccia. L'accesso reale richiede un sistema di autenticazione dedicato, previsto per una fase successiva.",
     f_disclosure:"In qualità di Affiliato Amazon, Kompalo riceve una commissione sugli acquisti idonei.",f_copyright:"Copyright © Kompalo 2026",f_legal:"Note legali",f_privacy:"Privacy",f_api:"Stato API ↗",f_cookies:"Cookie",f_contact:"Contatti",
     t_copied:"Link copiato",t_pick:"Seleziona almeno un paese",t_auth:p=>p+": accesso disponibile a breve",
     co:{DE:"Germania",UK:"Regno Unito",FR:"Francia",ES:"Spagna",IT:"Italia",SE:"Svezia",NL:"Paesi Bassi",PL:"Polonia"},
@@ -446,11 +446,11 @@ const I18N={
     hero_t1:"Consigue el",hero_t2:"mejor precio",hero_tag:"Inteligencia de precios transfronteriza en los marketplaces de Amazon europeos. Un producto, ocho países, el mejor precio.",
     s_kicker:"¿Qué producto buscas al mejor precio?",s_btn:"Comparar →",s_ph:"Sony WH-1000XM5, AirPods, Kindle…",s_try:"Prueba:",
     sec_best:"Más vendidos",sec_fav:"Tus favoritos",m_loading:"cargando…",m_demo:" · demo",m_products:n=>n+" producto"+(n>1?"s":""),m_results0:"Sin resultados",m_favorites:n=>n+" favorito"+(n>1?"s":""),
-    c_reviews:"reseñas",c_share:"Compartir",c_copy:"Copiar",c_oos:"agotado",c_more:n=>"+ "+n+" país"+(n>1?"es":"")+" más ▾",c_save:"Ahorra",c_save_sub:(p,a,b)=>p+"% — "+a+" vs "+b,c_none:"Sin precios para los países seleccionados",
+    c_reviews:"reseñas",c_share:"Compartir",c_copy:"Copiar",c_oos:"agotado",c_more:n=>"+ "+n+" país"+(n>1?"es":"")+" más ▾",c_save:"Ahorra",c_save_sub:(p,a,b)=>p+"%, "+a+" vs "+b,c_none:"Sin precios para los países seleccionados",
     e_no_results:"Sin resultados. Prueba otro término.",e_no_fav:"Aún no hay favoritos. Haz clic en ☆ de un producto para añadirlo.",
     st_title:"Ajustes",st_countries:"Mostrar solo precios de",st_lang:"Idioma",st_cur:"Moneda",st_cancel:"Cancelar",st_ok:"OK",
     au_login:"Iniciar sesión",au_signup:"Crear cuenta",au_login_sub:"Accede a tus favoritos y alertas de precio en todos tus dispositivos.",au_signup_sub:"Crea tu cuenta para guardar favoritos y seguir las bajadas de precio.",
-    au_or:"o",au_name:"Nombre",au_email:"Email",au_pass:"Contraseña",au_cont:"Continuar con ",au_login_btn:"Iniciar sesión",au_signup_btn:"Crear mi cuenta",au_to_signup:"¿Aún no tienes cuenta? Regístrate",au_to_login:"¿Ya tienes cuenta? Inicia sesión",au_note:"🔒 Vista previa de la interfaz. El inicio de sesión real requiere un sistema de autenticación dedicado — previsto para una fase futura.",
+    au_or:"o",au_name:"Nombre",au_email:"Email",au_pass:"Contraseña",au_cont:"Continuar con ",au_login_btn:"Iniciar sesión",au_signup_btn:"Crear mi cuenta",au_to_signup:"¿Aún no tienes cuenta? Regístrate",au_to_login:"¿Ya tienes cuenta? Inicia sesión",au_note:"🔒 Vista previa de la interfaz. El inicio de sesión real requiere un sistema de autenticación dedicado, previsto para una fase futura.",
     f_disclosure:"Como Afiliado de Amazon, Kompalo obtiene una comisión por las compras que cumplan los requisitos.",f_copyright:"Copyright © Kompalo 2026",f_legal:"Aviso legal",f_privacy:"Privacidad",f_api:"Estado de la API ↗",f_cookies:"Cookies",f_contact:"Contacto",
     t_copied:"Enlace copiado",t_pick:"Selecciona al menos un país",t_auth:p=>p+": inicio de sesión próximamente",
     co:{DE:"Alemania",UK:"Reino Unido",FR:"Francia",ES:"España",IT:"Italia",SE:"Suecia",NL:"Países Bajos",PL:"Polonia"},
@@ -459,11 +459,11 @@ const I18N={
     hero_t1:"Vind de",hero_t2:"beste prijs",hero_tag:"Grensoverschrijdende prijsvergelijking op de Europese Amazon-marktplaatsen. Eén product, acht landen, de beste prijs.",
     s_kicker:"Welk product zoek je voor de beste prijs?",s_btn:"Vergelijken →",s_ph:"Sony WH-1000XM5, AirPods, Kindle…",s_try:"Probeer:",
     sec_best:"Bestsellers",sec_fav:"Je favorieten",m_loading:"laden…",m_demo:" · demo",m_products:n=>n+" product"+(n>1?"en":""),m_results0:"Geen resultaten",m_favorites:n=>n+" favoriet"+(n>1?"en":""),
-    c_reviews:"beoordelingen",c_share:"Delen",c_copy:"Kopiëren",c_oos:"niet op voorraad",c_more:n=>"+ "+n+" ander land"+(n>1?"en":"")+" ▾",c_save:"Bespaar",c_save_sub:(p,a,b)=>p+"% — "+a+" vs "+b,c_none:"Geen prijzen voor de geselecteerde landen",
+    c_reviews:"beoordelingen",c_share:"Delen",c_copy:"Kopiëren",c_oos:"niet op voorraad",c_more:n=>"+ "+n+" ander land"+(n>1?"en":"")+" ▾",c_save:"Bespaar",c_save_sub:(p,a,b)=>p+"%, "+a+" vs "+b,c_none:"Geen prijzen voor de geselecteerde landen",
     e_no_results:"Geen resultaten. Probeer een andere term.",e_no_fav:"Nog geen favorieten. Klik op ☆ van een product om het toe te voegen.",
     st_title:"Instellingen",st_countries:"Toon alleen prijzen uit",st_lang:"Taal",st_cur:"Valuta",st_cancel:"Annuleren",st_ok:"OK",
     au_login:"Inloggen",au_signup:"Account aanmaken",au_login_sub:"Bekijk je favorieten en prijsmeldingen op al je apparaten.",au_signup_sub:"Maak je account om favorieten op te slaan en prijsdalingen te volgen.",
-    au_or:"of",au_name:"Naam",au_email:"E-mail",au_pass:"Wachtwoord",au_cont:"Doorgaan met ",au_login_btn:"Inloggen",au_signup_btn:"Mijn account aanmaken",au_to_signup:"Nog geen account? Registreer",au_to_login:"Al een account? Log in",au_note:"🔒 Voorbeeld van de interface. Echt inloggen vereist een eigen authenticatiesysteem — gepland voor een latere stap.",
+    au_or:"of",au_name:"Naam",au_email:"E-mail",au_pass:"Wachtwoord",au_cont:"Doorgaan met ",au_login_btn:"Inloggen",au_signup_btn:"Mijn account aanmaken",au_to_signup:"Nog geen account? Registreer",au_to_login:"Al een account? Log in",au_note:"🔒 Voorbeeld van de interface. Echt inloggen vereist een eigen authenticatiesysteem, gepland voor een latere stap.",
     f_disclosure:"Als Amazon-partner verdient Kompalo een commissie op kwalificerende aankopen.",f_copyright:"Copyright © Kompalo 2026",f_legal:"Juridische informatie",f_privacy:"Privacy",f_api:"API-status ↗",f_cookies:"Cookies",f_contact:"Contact",
     t_copied:"Link gekopieerd",t_pick:"Selecteer minstens één land",t_auth:p=>p+": inloggen binnenkort beschikbaar",
     co:{DE:"Duitsland",UK:"Verenigd Koninkrijk",FR:"Frankrijk",ES:"Spanje",IT:"Italië",SE:"Zweden",NL:"Nederland",PL:"Polen"},
@@ -472,11 +472,11 @@ const I18N={
     hero_t1:"Hitta det",hero_t2:"bästa priset",hero_tag:"Gränsöverskridande prisbevakning på de europeiska Amazon-marknadsplatserna. En produkt, åtta länder, det bästa priset.",
     s_kicker:"Vilken produkt söker du till bästa pris?",s_btn:"Jämför →",s_ph:"Sony WH-1000XM5, AirPods, Kindle…",s_try:"Prova:",
     sec_best:"Mest sålda",sec_fav:"Dina favoriter",m_loading:"laddar…",m_demo:" · demo",m_products:n=>n+" produkt"+(n>1?"er":""),m_results0:"Inga resultat",m_favorites:n=>n+" favorit"+(n>1?"er":""),
-    c_reviews:"recensioner",c_share:"Dela",c_copy:"Kopiera",c_oos:"slut i lager",c_more:n=>"+ "+n+" land"+(n>1?"er":"")+" till ▾",c_save:"Spara",c_save_sub:(p,a,b)=>p+"% — "+a+" mot "+b,c_none:"Inga priser för de valda länderna",
+    c_reviews:"recensioner",c_share:"Dela",c_copy:"Kopiera",c_oos:"slut i lager",c_more:n=>"+ "+n+" land"+(n>1?"er":"")+" till ▾",c_save:"Spara",c_save_sub:(p,a,b)=>p+"%, "+a+" mot "+b,c_none:"Inga priser för de valda länderna",
     e_no_results:"Inga resultat. Prova en annan sökterm.",e_no_fav:"Inga favoriter ännu. Klicka på ☆ på en produkt för att lägga till den.",
     st_title:"Inställningar",st_countries:"Visa endast priser från",st_lang:"Språk",st_cur:"Valuta",st_cancel:"Avbryt",st_ok:"OK",
     au_login:"Logga in",au_signup:"Skapa konto",au_login_sub:"Kom åt dina favoriter och prisvarningar på alla dina enheter.",au_signup_sub:"Skapa ditt konto för att spara favoriter och följa prissänkningar.",
-    au_or:"eller",au_name:"Namn",au_email:"E-post",au_pass:"Lösenord",au_cont:"Fortsätt med ",au_login_btn:"Logga in",au_signup_btn:"Skapa mitt konto",au_to_signup:"Inget konto än? Registrera dig",au_to_login:"Har du redan ett konto? Logga in",au_note:"🔒 Förhandsvisning av gränssnittet. Riktig inloggning kräver ett dedikerat autentiseringssystem — planerat till ett senare steg.",
+    au_or:"eller",au_name:"Namn",au_email:"E-post",au_pass:"Lösenord",au_cont:"Fortsätt med ",au_login_btn:"Logga in",au_signup_btn:"Skapa mitt konto",au_to_signup:"Inget konto än? Registrera dig",au_to_login:"Har du redan ett konto? Logga in",au_note:"🔒 Förhandsvisning av gränssnittet. Riktig inloggning kräver ett dedikerat autentiseringssystem, planerat till ett senare steg.",
     f_disclosure:"Som Amazon-partner tjänar Kompalo en provision på kvalificerande köp.",f_copyright:"Copyright © Kompalo 2026",f_legal:"Juridisk information",f_privacy:"Integritet",f_api:"API-status ↗",f_cookies:"Cookies",f_contact:"Kontakt",
     t_copied:"Länk kopierad",t_pick:"Välj minst ett land",t_auth:p=>p+": inloggning kommer snart",
     co:{DE:"Tyskland",UK:"Storbritannien",FR:"Frankrike",ES:"Spanien",IT:"Italien",SE:"Sverige",NL:"Nederländerna",PL:"Polen"},
@@ -485,11 +485,11 @@ const I18N={
     hero_t1:"Znajdź",hero_t2:"najlepszą cenę",hero_tag:"Transgraniczna analiza cen na europejskich platformach Amazon. Jeden produkt, osiem krajów, najlepsza cena.",
     s_kicker:"Jakiego produktu szukasz w najlepszej cenie?",s_btn:"Porównaj →",s_ph:"Sony WH-1000XM5, AirPods, Kindle…",s_try:"Wypróbuj:",
     sec_best:"Bestsellery",sec_fav:"Twoje ulubione",m_loading:"ładowanie…",m_demo:" · demo",m_products:n=>n+" produkt"+(n===1?"":n<5?"y":"ów"),m_results0:"Brak wyników",m_favorites:n=>n+" ulubion"+(n===1?"y":n<5?"e":"ych"),
-    c_reviews:"opinii",c_share:"Udostępnij",c_copy:"Kopiuj",c_oos:"brak w magazynie",c_more:n=>"+ "+n+" więcej "+(n<5?"kraje":"krajów")+" ▾",c_save:"Oszczędź",c_save_sub:(p,a,b)=>p+"% — "+a+" vs "+b,c_none:"Brak cen dla wybranych krajów",
+    c_reviews:"opinii",c_share:"Udostępnij",c_copy:"Kopiuj",c_oos:"brak w magazynie",c_more:n=>"+ "+n+" więcej "+(n<5?"kraje":"krajów")+" ▾",c_save:"Oszczędź",c_save_sub:(p,a,b)=>p+"%, "+a+" vs "+b,c_none:"Brak cen dla wybranych krajów",
     e_no_results:"Brak wyników. Spróbuj innego hasła.",e_no_fav:"Brak ulubionych. Kliknij ☆ na produkcie, aby go dodać.",
     st_title:"Ustawienia",st_countries:"Pokaż tylko ceny z",st_lang:"Język",st_cur:"Waluta",st_cancel:"Anuluj",st_ok:"OK",
     au_login:"Zaloguj się",au_signup:"Załóż konto",au_login_sub:"Uzyskaj dostęp do ulubionych i alertów cenowych na wszystkich urządzeniach.",au_signup_sub:"Załóż konto, aby zapisywać ulubione i śledzić spadki cen.",
-    au_or:"lub",au_name:"Imię",au_email:"E-mail",au_pass:"Hasło",au_cont:"Kontynuuj z ",au_login_btn:"Zaloguj się",au_signup_btn:"Załóż konto",au_to_signup:"Nie masz konta? Zarejestruj się",au_to_login:"Masz już konto? Zaloguj się",au_note:"🔒 Podgląd interfejsu. Prawdziwe logowanie wymaga dedykowanego systemu uwierzytelniania — zaplanowane na kolejny etap.",
+    au_or:"lub",au_name:"Imię",au_email:"E-mail",au_pass:"Hasło",au_cont:"Kontynuuj z ",au_login_btn:"Zaloguj się",au_signup_btn:"Załóż konto",au_to_signup:"Nie masz konta? Zarejestruj się",au_to_login:"Masz już konto? Zaloguj się",au_note:"🔒 Podgląd interfejsu. Prawdziwe logowanie wymaga dedykowanego systemu uwierzytelniania, zaplanowane na kolejny etap.",
     f_disclosure:"Jako Partner Amazon, Kompalo otrzymuje prowizję od kwalifikujących się zakupów.",f_copyright:"Copyright © Kompalo 2026",f_legal:"Informacje prawne",f_privacy:"Prywatność",f_api:"Status API ↗",f_cookies:"Pliki cookie",f_contact:"Kontakt",
     t_copied:"Skopiowano link",t_pick:"Wybierz co najmniej jeden kraj",t_auth:p=>p+": logowanie wkrótce dostępne",
     co:{DE:"Niemcy",UK:"Wielka Brytania",FR:"Francja",ES:"Hiszpania",IT:"Włochy",SE:"Szwecja",NL:"Holandia",PL:"Polska"},
@@ -717,7 +717,7 @@ function renderCard(ref){
   ref.el.innerHTML=`
     <button class="fav fav-btn ${isFav?'on':''}" data-pid="${p.pid}">${isFav?'★':'☆'}</button>
     <div class="cimg-top"><img src="${p.img||''}" alt="${(p.brand?p.brand+' ':'')+(p.title||'')}" loading="lazy" onerror="this.style.opacity=0"></div>
-    <div class="cmeta"><div class="brand">${p.brand||'—'}</div><div class="ttl">${p.title}</div>
+    <div class="cmeta"><div class="brand">${p.brand||''}</div><div class="ttl">${p.title}</div>
       ${p.rating?`<div class="rating">★ ${p.rating} · ${(p.reviews||0).toLocaleString(LOCALE[state.lang])} ${t("c_reviews")}</div>`:''}</div>
     <div class="league">${leagueHtml}</div>
     <div class="cshare">
@@ -739,7 +739,7 @@ function renderCard(ref){
   // share
   const rows=ref._rows;const best=rows&&rows[0];const url=(best&&best.url&&best.url!=='#')?best.url:API_BASE;
   const enc=encodeURIComponent(url);
-  const txt=encodeURIComponent(p.title+" — "+(best?fmt(best.amount,ref.cmp.currency):"")+" · Kompalo");
+  const txt=encodeURIComponent(p.title+", "+(best?fmt(best.amount,ref.cmp.currency):"")+" · Kompalo");
   const wa=ref.el.querySelector(".sh-wa"),fb=ref.el.querySelector(".sh-fb"),x=ref.el.querySelector(".sh-x"),tg=ref.el.querySelector(".sh-tg"),cp=ref.el.querySelector(".sh-cp");
   if(wa)wa.href=`https://wa.me/?text=${txt}%20${enc}`;
   if(fb)fb.href=`https://www.facebook.com/sharer/sharer.php?u=${enc}`;

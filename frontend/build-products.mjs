@@ -42,35 +42,35 @@ const CO = {
 const T = {
   fr: { t: (n) => `prix Amazon dans ${n} pays`, d: (t, p, c) => `Meilleur prix pour ${t} : ${p} en ${c}. Comparez les prix Amazon de plusieurs pays européens et économisez.`,
     h2: 'Prix Amazon par pays', best: 'Meilleur prix', view: 'Voir sur Amazon', save: (a, p) => `Économisez ${a} (${p} %)`, vs: (c, d) => `${c} vs ${d}`,
-    cta: 'Comparer en temps réel sur Kompalo →', upd: (d) => `Prix relevés le ${d}. Prix indicatifs — vérifiez le prix final sur Amazon.`,
+    cta: 'Comparer en temps réel sur Kompalo →', upd: (d) => `Prix relevés le ${d}. Prix indicatifs, vérifiez le prix final sur Amazon.`,
     oos: 'rupture de stock', disc: 'En tant que Partenaire Amazon, Kompalo perçoit une commission sur les achats remplissant les conditions requises.' },
   en: { t: (n) => `Amazon prices in ${n} countries`, d: (t, p, c) => `Best price for ${t}: ${p} in ${c}. Compare Amazon prices across European countries and save.`,
     h2: 'Amazon prices by country', best: 'Best price', view: 'View on Amazon', save: (a, p) => `Save ${a} (${p}%)`, vs: (c, d) => `${c} vs ${d}`,
-    cta: 'Compare in real time on Kompalo →', upd: (d) => `Prices captured on ${d}. Indicative — check the final price on Amazon.`,
+    cta: 'Compare in real time on Kompalo →', upd: (d) => `Prices captured on ${d}. Indicative, check the final price on Amazon.`,
     oos: 'out of stock', disc: 'As an Amazon Associate, Kompalo earns a commission on qualifying purchases.' },
   de: { t: (n) => `Amazon-Preise in ${n} Ländern`, d: (t, p, c) => `Bester Preis für ${t}: ${p} in ${c}. Vergleiche Amazon-Preise in mehreren europäischen Ländern und spare.`,
     h2: 'Amazon-Preise nach Land', best: 'Bestpreis', view: 'Bei Amazon ansehen', save: (a, p) => `Spare ${a} (${p} %)`, vs: (c, d) => `${c} vs. ${d}`,
-    cta: 'In Echtzeit auf Kompalo vergleichen →', upd: (d) => `Preise erfasst am ${d}. Richtwerte — endgültigen Preis bei Amazon prüfen.`,
+    cta: 'In Echtzeit auf Kompalo vergleichen →', upd: (d) => `Preise erfasst am ${d}. Richtwerte, endgültigen Preis bei Amazon prüfen.`,
     oos: 'nicht verfügbar', disc: 'Als Amazon-Partner verdient Kompalo an qualifizierten Käufen eine Provision.' },
   it: { t: (n) => `prezzi Amazon in ${n} paesi`, d: (t, p, c) => `Miglior prezzo per ${t}: ${p} in ${c}. Confronta i prezzi Amazon di più paesi europei e risparmia.`,
     h2: 'Prezzi Amazon per paese', best: 'Miglior prezzo', view: 'Vedi su Amazon', save: (a, p) => `Risparmia ${a} (${p}%)`, vs: (c, d) => `${c} vs ${d}`,
-    cta: 'Confronta in tempo reale su Kompalo →', upd: (d) => `Prezzi rilevati il ${d}. Indicativi — verifica il prezzo finale su Amazon.`,
+    cta: 'Confronta in tempo reale su Kompalo →', upd: (d) => `Prezzi rilevati il ${d}. Indicativi, verifica il prezzo finale su Amazon.`,
     oos: 'esaurito', disc: 'In qualità di Affiliato Amazon, Kompalo riceve una commissione sugli acquisti idonei.' },
   es: { t: (n) => `precios de Amazon en ${n} países`, d: (t, p, c) => `Mejor precio de ${t}: ${p} en ${c}. Compara los precios de Amazon en varios países europeos y ahorra.`,
     h2: 'Precios de Amazon por país', best: 'Mejor precio', view: 'Ver en Amazon', save: (a, p) => `Ahorra ${a} (${p} %)`, vs: (c, d) => `${c} vs ${d}`,
-    cta: 'Compara en tiempo real en Kompalo →', upd: (d) => `Precios registrados el ${d}. Orientativos — comprueba el precio final en Amazon.`,
+    cta: 'Compara en tiempo real en Kompalo →', upd: (d) => `Precios registrados el ${d}. Orientativos, comprueba el precio final en Amazon.`,
     oos: 'agotado', disc: 'Como Afiliado de Amazon, Kompalo obtiene una comisión por las compras que cumplan los requisitos.' },
   nl: { t: (n) => `Amazon-prijzen in ${n} landen`, d: (t, p, c) => `Beste prijs voor ${t}: ${p} in ${c}. Vergelijk Amazon-prijzen in meerdere Europese landen en bespaar.`,
     h2: 'Amazon-prijzen per land', best: 'Beste prijs', view: 'Bekijk op Amazon', save: (a, p) => `Bespaar ${a} (${p}%)`, vs: (c, d) => `${c} vs ${d}`,
-    cta: 'Vergelijk in realtime op Kompalo →', upd: (d) => `Prijzen vastgelegd op ${d}. Indicatief — controleer de definitieve prijs op Amazon.`,
+    cta: 'Vergelijk in realtime op Kompalo →', upd: (d) => `Prijzen vastgelegd op ${d}. Indicatief, controleer de definitieve prijs op Amazon.`,
     oos: 'niet op voorraad', disc: 'Als Amazon-partner verdient Kompalo een commissie op kwalificerende aankopen.' },
   sv: { t: (n) => `Amazon-priser i ${n} länder`, d: (t, p, c) => `Bästa priset för ${t}: ${p} i ${c}. Jämför Amazon-priser i flera europeiska länder och spara.`,
     h2: 'Amazon-priser per land', best: 'Bästa pris', view: 'Visa på Amazon', save: (a, p) => `Spara ${a} (${p} %)`, vs: (c, d) => `${c} mot ${d}`,
-    cta: 'Jämför i realtid på Kompalo →', upd: (d) => `Priser hämtade ${d}. Ungefärliga — kontrollera slutpriset på Amazon.`,
+    cta: 'Jämför i realtid på Kompalo →', upd: (d) => `Priser hämtade ${d}. Ungefärliga, kontrollera slutpriset på Amazon.`,
     oos: 'slut i lager', disc: 'Som Amazon-partner tjänar Kompalo en provision på kvalificerande köp.' },
   pl: { t: (n) => `ceny Amazon w ${n} krajach`, d: (t, p, c) => `Najlepsza cena ${t}: ${p} w ${c}. Porównaj ceny Amazon w kilku krajach europejskich i oszczędzaj.`,
     h2: 'Ceny Amazon według kraju', best: 'Najlepsza cena', view: 'Zobacz na Amazon', save: (a, p) => `Oszczędź ${a} (${p}%)`, vs: (c, d) => `${c} vs ${d}`,
-    cta: 'Porównaj na żywo na Kompalo →', upd: (d) => `Ceny pobrane ${d}. Orientacyjne — sprawdź ostateczną cenę na Amazon.`,
+    cta: 'Porównaj na żywo na Kompalo →', upd: (d) => `Ceny pobrane ${d}. Orientacyjne, sprawdź ostateczną cenę na Amazon.`,
     oos: 'brak w magazynie', disc: 'Jako Partner Amazon, Kompalo otrzymuje prowizję od kwalifikujących się zakupów.' },
 };
 
@@ -90,13 +90,13 @@ async function getJson(url) {
 
 // ---- fetch data ----
 // Resilient in CI: if the API is momentarily unreachable, don't fail the whole
-// deploy — skip product pages so the language site still ships. A prior run's
+// deploy, skip product pages so the language site still ships. A prior run's
 // product URLs get stripped from the sitemap so we never advertise stale pages.
 let products;
 try {
   ({ products } = await getJson(`${API}/api/popular?limit=24`));
 } catch (e) {
-  console.warn(`products: API unreachable (${e.message}) — skipping product pages, language site still deploys`);
+  console.warn(`products: API unreachable (${e.message}), skipping product pages, language site still deploys`);
   products = [];
 }
 if (!products || !products.length) {
@@ -104,7 +104,7 @@ if (!products || !products.length) {
   if (existsSync(smPath0)) {
     writeFileSync(smPath0, readFileSync(smPath0, 'utf8').replace(/<!--products-->[\s\S]*?(?=<\/urlset>)/, ''), 'utf8');
   }
-  console.warn('products: no products to render — language pages only.');
+  console.warn('products: no products to render, language pages only.');
   process.exit(0);
 }
 
@@ -128,7 +128,7 @@ function pageHtml(p, lang, slug, allSlugsAlternates) {
   const n = rows.length;
   const langRoot = `${BASE}/${LANG_PATH(lang)}`;
   const pageUrl = `${langRoot}p/${slug}/`;
-  const title = `${p.title} — ${t.t(n)} | Kompalo`;
+  const title = `${p.title} : ${t.t(n)} | Kompalo`;
   const desc = t.d(p.title, fmt(cheap.amount, cheap.currency, lang), co[cheap.marketplace] || cheap.marketplace);
   const dateStr = new Intl.DateTimeFormat(LOCALE[lang], { dateStyle: 'long' }).format(buildDate);
 
@@ -221,7 +221,7 @@ footer{margin-top:34px;border-top:1.5px solid var(--line);padding-top:14px;font-
     <div>
       ${p.brand ? `<div class="brand">${esc(p.brand)}</div>` : ''}
       <h1>${esc(p.title)}</h1>
-      ${savEur > 0.5 ? `<span class="save">${t.save(fmt(savEur, 'EUR', lang), savPct)} — ${t.vs(co[cheap.marketplace] || cheap.marketplace, co[dear.marketplace] || dear.marketplace)}</span>` : ''}
+      ${savEur > 0.5 ? `<span class="save">${t.save(fmt(savEur, 'EUR', lang), savPct)}, ${t.vs(co[cheap.marketplace] || cheap.marketplace, co[dear.marketplace] || dear.marketplace)}</span>` : ''}
     </div>
   </div>
   <h2>${t.h2}</h2>
@@ -257,7 +257,7 @@ for (const p of products) {
 }
 
 // ---- append product URLs to the sitemap build-i18n wrote ----
-// Skip while demo prices are noindexed — don't advertise pages we tell Google
+// Skip while demo prices are noindexed, don't advertise pages we tell Google
 // not to index. (Re-run with NOINDEX=false once real prices are live.)
 const smPath = join(OUT, 'sitemap.xml');
 if (NOINDEX) {
@@ -266,7 +266,7 @@ if (NOINDEX) {
     sm = sm.replace(/<!--products-->[\s\S]*?(?=<\/urlset>)/, '');
     writeFileSync(smPath, sm, 'utf8');
   }
-  console.log(`products: ${generated.length} products × ${LANGS.length} langs = ${pages} pages (NOINDEX — excluded from sitemap; BASE=${BASE}, OUT=${OUT})`);
+  console.log(`products: ${generated.length} products × ${LANGS.length} langs = ${pages} pages (NOINDEX, excluded from sitemap; BASE=${BASE}, OUT=${OUT})`);
 } else if (existsSync(smPath)) {
   let sm = readFileSync(smPath, 'utf8');
   // idempotence: drop a previous products block if present
@@ -278,7 +278,7 @@ if (NOINDEX) {
   sm = sm.replace('</urlset>', `<!--products-->\n${block}\n</urlset>`);
   writeFileSync(smPath, sm, 'utf8');
 } else {
-  console.warn('products: sitemap.xml not found in OUT — run build-i18n.mjs first');
+  console.warn('products: sitemap.xml not found in OUT, run build-i18n.mjs first');
 }
 
 console.log(`products: ${generated.length} products × ${LANGS.length} langs = ${pages} pages (BASE=${BASE}, OUT=${OUT})`);
