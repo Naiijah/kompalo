@@ -88,6 +88,23 @@ async function getJson(url) {
   return r.json();
 }
 
+// Demo catalogue baked into index.html (the app's own offline-sample fallback).
+// Lets the product pages build with NO backend at all, so the whole site runs
+// free and static until real Amazon prices are wired in. Single source of truth:
+// the SAMPLE object in index.html.
+function bakedSample() {
+  try {
+    const html = readFileSync(join(DIR, 'index.html'), 'utf8');
+    const m = html.match(/const SAMPLE\s*=\s*(\{[\s\S]*?\n\})\s*;/);
+    if (!m) return [];
+    const S = new Function('return ' + m[1])();
+    return Object.entries(S).map(([k, s]) => ({
+      productId: 'demo-' + k, title: s.title, brand: s.brand, imageUrl: s.img,
+      listings: s.prices.map(([marketplace, amount]) => ({ marketplace, amount, currency: 'EUR', inStock: true, url: '#' })),
+    }));
+  } catch { return []; }
+}
+
 // ---- fetch data ----
 // Resilient in CI: if the API is momentarily unreachable, don't fail the whole
 // deploy, skip product pages so the language site still ships. A prior run's
@@ -96,15 +113,21 @@ let products;
 try {
   ({ products } = await getJson(`${API}/api/popular?limit=24`));
 } catch (e) {
-  console.warn(`products: API unreachable (${e.message}), skipping product pages, language site still deploys`);
+  console.warn(`products: API unreachable (${e.message}), using the baked demo catalogue`);
   products = [];
+}
+// No live API (the mock backend is offline): fall back to the demo catalogue
+// baked into index.html so the whole site still builds fully static and free.
+if (!products || !products.length) {
+  products = bakedSample();
+  if (products.length) console.warn(`products: built ${products.length} products from baked sample (no backend needed)`);
 }
 if (!products || !products.length) {
   const smPath0 = join(OUT, 'sitemap.xml');
   if (existsSync(smPath0)) {
     writeFileSync(smPath0, readFileSync(smPath0, 'utf8').replace(/<!--products-->[\s\S]*?(?=<\/urlset>)/, ''), 'utf8');
   }
-  console.warn('products: no products to render, language pages only.');
+  console.warn('products: no data available at all, language pages only.');
   process.exit(0);
 }
 
