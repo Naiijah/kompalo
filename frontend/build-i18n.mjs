@@ -79,6 +79,38 @@ const META = {
 
 const src = readFileSync(SRC, 'utf8');
 
+// Pull the per-language trust/FAQ content out of index.html (single source of
+// truth) so we can render it into the STATIC HTML and add FAQ structured data,
+// making that content crawlable by every engine, not only JS-rendering Google.
+function extractConst(s, name) {
+  const at = s.indexOf('const ' + name + ' = {');
+  if (at < 0) return {};
+  const open = s.indexOf('{', at);
+  let depth = 0, inStr = false, q = '';
+  for (let i = open; i < s.length; i++) {
+    const c = s[i];
+    if (inStr) { if (c === '\\') { i++; continue; } if (c === q) inStr = false; continue; }
+    if (c === '"' || c === "'" || c === '`') { inStr = true; q = c; continue; }
+    if (c === '{') depth++;
+    else if (c === '}') { depth--; if (depth === 0) return new Function('return ' + s.slice(open, i + 1))(); }
+  }
+  return {};
+}
+const TRUSTC = extractConst(src, 'TRUSTC');
+const escHtml = (v) => String(v).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+function trustBlocks(code) {
+  const T = TRUSTC[code] || TRUSTC.en;
+  if (!T) return null;
+  return {
+    badges: T.badges.map((b) => `<span class="tbadge">${escHtml(b)}</span>`).join(''),
+    how: T.how.map((s, i) => `<div class="step"><span class="sn">0${i + 1}</span><h4>${escHtml(s.t)}</h4><p>${escHtml(s.d)}</p></div>`).join(''),
+    why: T.why.map((w) => `<div class="wcell"><h4>${escHtml(w.t)}</h4><p>${escHtml(w.d)}</p></div>`).join(''),
+    faq: T.faq.map((f) => `<details class="faq-item"><summary>${escHtml(f.q)}</summary><div class="faq-a">${escHtml(f.a)}</div></details>`).join(''),
+    howH: escHtml(T.howH), whyH: escHtml(T.whyH), faqH: escHtml(T.faqH),
+    jsonld: JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: T.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }),
+  };
+}
+
 function setAttrMeta(html, attr, key, value) {
   const re = new RegExp(`(<meta ${attr}="${key}" content=")[^"]*(")`);
   return html.replace(re, `$1${value}$2`);
@@ -99,6 +131,15 @@ function buildPage(code) {
   h = setAttrMeta(h, 'name', 'twitter:description', m.ogDesc);
   h = h.replace(/(<link rel="canonical" href=")[^"]*(")/, `$1${url}$2`);
   h = h.replace('<!--LANGINJECT-->', `<script>window.__LANG__='${code}';</script>`);
+  // Render the trust/FAQ content into the static HTML + add FAQ structured data.
+  const tb = trustBlocks(code);
+  if (tb) {
+    h = h.replace('<div class="tbadges" id="trustBadges"></div>', `<div class="tbadges" id="trustBadges">${tb.badges}</div>`);
+    h = h.replace('<h2 class="blk" id="howH"></h2><div class="how-steps" id="howSteps"></div>', `<h2 class="blk" id="howH">${tb.howH}</h2><div class="how-steps" id="howSteps">${tb.how}</div>`);
+    h = h.replace('<h2 class="blk" id="whyH"></h2><div class="why-grid" id="whyGrid"></div>', `<h2 class="blk" id="whyH">${tb.whyH}</h2><div class="why-grid" id="whyGrid">${tb.why}</div>`);
+    h = h.replace('<h2 class="blk" id="faqH"></h2><div class="faq-list" id="faqList"></div>', `<h2 class="blk" id="faqH">${tb.faqH}</h2><div class="faq-list" id="faqList">${tb.faq}</div>`);
+    h = h.replace('</head>', `<script type="application/ld+json">${tb.jsonld}</script>\n</head>`);
+  }
   // Point every hardcoded absolute URL (hreflang block, JSON-LD fallback) at BASE.
   if (BASE !== DEFAULT_BASE) h = h.replaceAll(`${DEFAULT_BASE}/`, `${BASE}/`);
   return h;
