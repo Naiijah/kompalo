@@ -241,6 +241,40 @@
     .sk::after,.skeleton-card::after,.car-skel::after{animation:none !important}
     html{scroll-behavior:auto}
   }
+  /* trust section, micro-badges, motion (added) */
+  .tbadges{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;justify-content:center}
+  .tbadge{font-family:'Spline Sans Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.02em;color:var(--ink-soft);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:5px 12px}
+  .tbadge::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--emerald);margin-right:7px;vertical-align:middle}
+  #trustSection{margin-top:64px;display:flex;flex-direction:column;gap:52px}
+  #trustSection h2.blk{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(22px,3vw,30px);margin:0 0 22px;letter-spacing:-.01em}
+  .how-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:720px){.how-steps{grid-template-columns:1fr}}
+  .step{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:22px 20px}
+  .step .sn{font-family:'Fraunces',serif;font-weight:900;font-style:italic;font-size:26px;color:var(--vermilion)}
+  .step h4{margin:8px 0 4px;font-size:17px}
+  .step p{margin:0;color:var(--ink-soft);font-size:14.5px;line-height:1.55}
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:860px){.why-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.why-grid{grid-template-columns:1fr}}
+  .wcell{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:18px;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+  .wcell:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(27,23,20,.08);border-color:var(--vermilion)}
+  .wcell h4{margin:0 0 5px;font-size:15.5px;display:flex;gap:8px;align-items:flex-start}
+  .wcell h4::before{content:"";flex:0 0 auto;width:9px;height:9px;margin-top:6px;border-radius:2px;background:var(--vermilion)}
+  .wcell p{margin:0;color:var(--ink-soft);font-size:14px;line-height:1.55}
+  .faq-list{display:flex;flex-direction:column;gap:10px;max-width:760px}
+  .faq-item{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .faq-item summary{cursor:pointer;list-style:none;padding:15px 18px;font-weight:600;font-size:15.5px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary::after{content:"+";font-family:'Spline Sans Mono',monospace;font-weight:600;color:var(--vermilion);font-size:20px;transition:transform .2s;flex:0 0 auto}
+  .faq-item[open] summary::after{transform:rotate(45deg)}
+  .faq-item summary:hover{color:var(--vermilion-deep)}
+  .faq-item .faq-a{padding:0 18px 16px;color:var(--ink-soft);font-size:14.5px;line-height:1.6}
+  .faq-item summary:focus-visible{outline:2px solid var(--vermilion);outline-offset:-2px;border-radius:10px}
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+  .card{transition:border-color .2s,box-shadow .2s}
+  .card:hover{border-color:var(--vermilion);box-shadow:0 12px 26px rgba(27,23,20,.09)}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
@@ -270,11 +304,17 @@
     <form class="search" id="form"><input id="q" type="text" autocomplete="off" data-i18n-ph="s_ph" placeholder="Sony WH-1000XM5, AirPods, Kindle…" /><button type="submit" data-i18n="s_btn">Comparer →</button></form>
     <div class="chips"><span class="lbl" data-i18n="s_try">Essayez&nbsp;:</span>
       <span class="chip" data-q="sony">Sony WH-1000XM5</span><span class="chip" data-q="airpods">AirPods Pro</span><span class="chip" data-q="kindle">Kindle</span><span class="chip" data-q="nintendo">Switch OLED</span><span class="chip" data-q="anker">Anker</span></div>
+    <div class="tbadges" id="trustBadges"></div>
   </section>
   <section id="bestSection">
     <div class="section-head"><h2 data-i18n="sec_best">Meilleures ventes</h2>
       <span class="car-nav"><button class="car-arrow" id="carPrev" aria-label="prev">‹</button><button class="car-arrow" id="carNext" aria-label="next">›</button></span></div>
     <div class="carousel" id="carousel"></div>
+  </section>
+  <section id="trustSection">
+    <div class="reveal"><h2 class="blk" id="howH"></h2><div class="how-steps" id="howSteps"></div></div>
+    <div class="reveal"><h2 class="blk" id="whyH"></h2><div class="why-grid" id="whyGrid"></div></div>
+    <div class="reveal"><h2 class="blk" id="faqH"></h2><div class="faq-list" id="faqList"></div></div>
   </section>
   <section id="resultsSection" style="display:none">
     <div class="section-head"><h2 id="resultsTitle"></h2><span class="meta" id="resultsMeta"></span></div>
@@ -549,6 +589,237 @@ const SAMPLE={
   anker:{title:"Anker PowerCore 10000",brand:"Anker",img:"https://picsum.photos/seed/B0194WDVHI/500/500",rating:4.5,reviews:156234,prices:[["DE",19.99],["PL",20.7],["FR",21.99],["UK",22]]}
 };
 
+// Trust, "how it works" and FAQ content, per language. Doubles as crawlable
+// SEO content answering the questions real shoppers ask.
+const TRUSTC = {
+  fr: {
+    badges:["Classé par prix, pas par commission","Sans publicité","TVA comprise","Gratuit"],
+    howH:"Comment ça marche",
+    how:[
+      {t:"Cherchez un produit",d:"Un nom de produit ou un lien Amazon, peu importe le pays."},
+      {t:"On compare 8 pays",d:"Les marketplaces Amazon européennes, interrogées pour vous."},
+      {t:"Voyez le meilleur prix",d:"Le pays le moins cher, TVA comprise, en un coup d'oeil."}
+    ],
+    whyH:"Pourquoi Kompalo",
+    why:[
+      {t:"Classé par prix, jamais par commission",d:"Le moins cher s'affiche en premier. Toujours."},
+      {t:"Sans pub, sans revente de données",d:"Aucune publicité, et vos recherches ne sont jamais revendues."},
+      {t:"TVA comprise",d:"Le prix affiché inclut la TVA du pays. La livraison s'affiche chez Amazon au paiement."},
+      {t:"Pas de douane dans l'UE",d:"Acheter sur l'Amazon d'un autre pays de l'UE est légal et sans frais de douane."},
+      {t:"8 marketplaces européennes",d:"Allemagne, France, Italie, Espagne, Pays-Bas, Suède, Pologne, Royaume-Uni."},
+      {t:"Gratuit",d:"Amazon nous verse une commission. Vous, vous ne payez rien."}
+    ],
+    faqH:"Questions fréquentes",
+    faq:[
+      {q:"Est-il légal d'acheter sur l'Amazon d'un autre pays ?",a:"Oui. Au sein de l'Union européenne, acheter sur l'Amazon d'un autre pays membre est parfaitement légal, sans droits de douane ni frais d'importation."},
+      {q:"Le prix comprend-il la TVA et la livraison ?",a:"Le prix affiché inclut la TVA du pays d'achat. Les frais de livraison, eux, s'affichent au moment de payer, directement chez Amazon."},
+      {q:"Vais-je payer des frais de douane ?",a:"Pas entre pays de l'Union européenne. Le Royaume-Uni étant hors UE, un achat sur Amazon UK peut, lui, entraîner des frais d'importation."},
+      {q:"Comment Kompalo gagne-t-il de l'argent ?",a:"Amazon nous verse une commission d'affiliation sur les achats éligibles. Le service reste gratuit et les résultats sont classés par prix, jamais selon la commission."},
+      {q:"Quels pays comparez-vous ?",a:"Huit : Allemagne, France, Italie, Espagne, Pays-Bas, Suède, Pologne et Royaume-Uni."}
+    ]
+  },
+  en: {
+    badges:["Ranked by price, not commission","No ads","VAT included","Free"],
+    howH:"How it works",
+    how:[
+      {t:"Search a product",d:"A product name or an Amazon link, from any country."},
+      {t:"We compare 8 countries",d:"The European Amazon marketplaces, checked for you."},
+      {t:"See the best price",d:"The cheapest country, VAT included, at a glance."}
+    ],
+    whyH:"Why Kompalo",
+    why:[
+      {t:"Ranked by price, never by commission",d:"The cheapest shows first. Always."},
+      {t:"No ads, no data reselling",d:"No advertising, and your searches are never sold."},
+      {t:"VAT included",d:"The price shown includes the country's VAT. Delivery shows at checkout on Amazon."},
+      {t:"No customs within the EU",d:"Buying from another EU country's Amazon is legal and free of customs duties."},
+      {t:"8 European marketplaces",d:"Germany, France, Italy, Spain, Netherlands, Sweden, Poland, United Kingdom."},
+      {t:"Free",d:"Amazon pays us a commission. You pay nothing."}
+    ],
+    faqH:"Frequently asked questions",
+    faq:[
+      {q:"Is it legal to buy from another country's Amazon?",a:"Yes. Within the European Union, buying from another member country's Amazon is perfectly legal, with no customs duties or import fees."},
+      {q:"Does the price include VAT and delivery?",a:"The price shown includes the VAT of the country of purchase. Delivery fees appear at checkout, directly on Amazon."},
+      {q:"Will I pay customs fees?",a:"Not between European Union countries. The United Kingdom is outside the EU, so a purchase on Amazon UK may incur import fees."},
+      {q:"How does Kompalo make money?",a:"Amazon pays us an affiliate commission on eligible purchases. The service stays free, and results are ranked by price, never by commission."},
+      {q:"Which countries do you compare?",a:"Eight: Germany, France, Italy, Spain, Netherlands, Sweden, Poland and the United Kingdom."}
+    ]
+  },
+  de: {
+    badges:["Nach Preis sortiert, nicht nach Provision","Ohne Werbung","inkl. MwSt.","Kostenlos"],
+    howH:"So funktioniert es",
+    how:[
+      {t:"Produkt suchen",d:"Ein Produktname oder ein Amazon-Link, aus jedem Land."},
+      {t:"Wir vergleichen 8 Länder",d:"Die europäischen Amazon-Marktplätze, für Sie geprüft."},
+      {t:"Besten Preis sehen",d:"Das günstigste Land, inkl. MwSt., auf einen Blick."}
+    ],
+    whyH:"Warum Kompalo",
+    why:[
+      {t:"Nach Preis sortiert, nie nach Provision",d:"Das Günstigste steht immer oben."},
+      {t:"Keine Werbung, kein Datenverkauf",d:"Keine Anzeigen, und Ihre Suchen werden nie verkauft."},
+      {t:"inkl. MwSt.",d:"Der angezeigte Preis enthält die MwSt. des Landes. Die Versandkosten erscheinen beim Bezahlen bei Amazon."},
+      {t:"Kein Zoll innerhalb der EU",d:"Der Kauf beim Amazon eines anderen EU-Landes ist legal und ohne Zollgebühren."},
+      {t:"8 europäische Marktplätze",d:"Deutschland, Frankreich, Italien, Spanien, Niederlande, Schweden, Polen, Großbritannien."},
+      {t:"Kostenlos",d:"Amazon zahlt uns eine Provision. Sie zahlen nichts."}
+    ],
+    faqH:"Häufige Fragen",
+    faq:[
+      {q:"Ist der Kauf beim Amazon eines anderen Landes legal?",a:"Ja. Innerhalb der Europäischen Union ist der Kauf beim Amazon eines anderen Mitgliedslandes völlig legal, ohne Zoll oder Einfuhrgebühren."},
+      {q:"Sind MwSt. und Versand im Preis enthalten?",a:"Der angezeigte Preis enthält die MwSt. des Kauflandes. Die Versandkosten erscheinen beim Bezahlen, direkt bei Amazon."},
+      {q:"Zahle ich Zollgebühren?",a:"Nicht zwischen Ländern der Europäischen Union. Großbritannien liegt außerhalb der EU, daher können bei einem Kauf auf Amazon UK Einfuhrgebühren anfallen."},
+      {q:"Wie verdient Kompalo Geld?",a:"Amazon zahlt uns eine Affiliate-Provision auf berechtigte Käufe. Der Dienst bleibt kostenlos, und die Ergebnisse werden nach Preis sortiert, nie nach Provision."},
+      {q:"Welche Länder vergleichen Sie?",a:"Acht: Deutschland, Frankreich, Italien, Spanien, Niederlande, Schweden, Polen und Großbritannien."}
+    ]
+  },
+  it: {
+    badges:["Ordinato per prezzo, non per commissione","Senza pubblicità","IVA inclusa","Gratis"],
+    howH:"Come funziona",
+    how:[
+      {t:"Cerca un prodotto",d:"Un nome di prodotto o un link Amazon, di qualsiasi paese."},
+      {t:"Confrontiamo 8 paesi",d:"I marketplace Amazon europei, controllati per te."},
+      {t:"Vedi il prezzo migliore",d:"Il paese più economico, IVA inclusa, in un colpo d'occhio."}
+    ],
+    whyH:"Perché Kompalo",
+    why:[
+      {t:"Ordinato per prezzo, mai per commissione",d:"Il più economico appare per primo. Sempre."},
+      {t:"Niente pubblicità, nessuna rivendita di dati",d:"Nessuna pubblicità, e le tue ricerche non vengono mai vendute."},
+      {t:"IVA inclusa",d:"Il prezzo mostrato include l'IVA del paese. La spedizione appare al pagamento su Amazon."},
+      {t:"Nessuna dogana nell'UE",d:"Comprare sull'Amazon di un altro paese UE è legale e senza dazi doganali."},
+      {t:"8 marketplace europei",d:"Germania, Francia, Italia, Spagna, Paesi Bassi, Svezia, Polonia, Regno Unito."},
+      {t:"Gratis",d:"Amazon ci versa una commissione. Tu non paghi nulla."}
+    ],
+    faqH:"Domande frequenti",
+    faq:[
+      {q:"È legale comprare sull'Amazon di un altro paese?",a:"Sì. All'interno dell'Unione europea, comprare sull'Amazon di un altro paese membro è perfettamente legale, senza dazi doganali né spese di importazione."},
+      {q:"Il prezzo include IVA e spedizione?",a:"Il prezzo mostrato include l'IVA del paese di acquisto. Le spese di spedizione appaiono al momento del pagamento, direttamente su Amazon."},
+      {q:"Pagherò spese doganali?",a:"No tra paesi dell'Unione europea. Il Regno Unito è fuori dall'UE, quindi un acquisto su Amazon UK può comportare spese di importazione."},
+      {q:"Come guadagna Kompalo?",a:"Amazon ci versa una commissione di affiliazione sugli acquisti idonei. Il servizio resta gratuito e i risultati sono ordinati per prezzo, mai per commissione."},
+      {q:"Quali paesi confrontate?",a:"Otto: Germania, Francia, Italia, Spagna, Paesi Bassi, Svezia, Polonia e Regno Unito."}
+    ]
+  },
+  es: {
+    badges:["Ordenado por precio, no por comisión","Sin publicidad","IVA incluido","Gratis"],
+    howH:"Cómo funciona",
+    how:[
+      {t:"Busca un producto",d:"Un nombre de producto o un enlace de Amazon, de cualquier país."},
+      {t:"Comparamos 8 países",d:"Los marketplaces de Amazon europeos, consultados por nosotros."},
+      {t:"Ve el mejor precio",d:"El país más barato, IVA incluido, de un vistazo."}
+    ],
+    whyH:"Por qué Kompalo",
+    why:[
+      {t:"Ordenado por precio, nunca por comisión",d:"El más barato aparece primero. Siempre."},
+      {t:"Sin anuncios, sin reventa de datos",d:"Sin publicidad, y tus búsquedas nunca se venden."},
+      {t:"IVA incluido",d:"El precio mostrado incluye el IVA del país. El envío aparece al pagar en Amazon."},
+      {t:"Sin aduana dentro de la UE",d:"Comprar en el Amazon de otro país de la UE es legal y sin derechos de aduana."},
+      {t:"8 marketplaces europeos",d:"Alemania, Francia, Italia, España, Países Bajos, Suecia, Polonia, Reino Unido."},
+      {t:"Gratis",d:"Amazon nos paga una comisión. Tú no pagas nada."}
+    ],
+    faqH:"Preguntas frecuentes",
+    faq:[
+      {q:"¿Es legal comprar en el Amazon de otro país?",a:"Sí. Dentro de la Unión Europea, comprar en el Amazon de otro país miembro es perfectamente legal, sin derechos de aduana ni gastos de importación."},
+      {q:"¿El precio incluye IVA y envío?",a:"El precio mostrado incluye el IVA del país de compra. Los gastos de envío aparecen al pagar, directamente en Amazon."},
+      {q:"¿Pagaré gastos de aduana?",a:"No entre países de la Unión Europea. El Reino Unido está fuera de la UE, así que una compra en Amazon UK puede conllevar gastos de importación."},
+      {q:"¿Cómo gana dinero Kompalo?",a:"Amazon nos paga una comisión de afiliación por las compras que cumplen los requisitos. El servicio sigue siendo gratuito y los resultados se ordenan por precio, nunca por comisión."},
+      {q:"¿Qué países comparáis?",a:"Ocho: Alemania, Francia, Italia, España, Países Bajos, Suecia, Polonia y Reino Unido."}
+    ]
+  },
+  nl: {
+    badges:["Op prijs gerangschikt, niet op commissie","Geen advertenties","Inclusief btw","Gratis"],
+    howH:"Hoe het werkt",
+    how:[
+      {t:"Zoek een product",d:"Een productnaam of een Amazon-link, uit elk land."},
+      {t:"Wij vergelijken 8 landen",d:"De Europese Amazon-marktplaatsen, voor u gecontroleerd."},
+      {t:"Zie de beste prijs",d:"Het goedkoopste land, inclusief btw, in één oogopslag."}
+    ],
+    whyH:"Waarom Kompalo",
+    why:[
+      {t:"Op prijs gerangschikt, nooit op commissie",d:"De goedkoopste staat altijd bovenaan."},
+      {t:"Geen advertenties, geen verkoop van gegevens",d:"Geen reclame, en uw zoekopdrachten worden nooit verkocht."},
+      {t:"Inclusief btw",d:"De getoonde prijs bevat de btw van het land. De verzendkosten verschijnen bij het afrekenen op Amazon."},
+      {t:"Geen douane binnen de EU",d:"Kopen op de Amazon van een ander EU-land is legaal en zonder invoerrechten."},
+      {t:"8 Europese marktplaatsen",d:"Duitsland, Frankrijk, Italië, Spanje, Nederland, Zweden, Polen, Verenigd Koninkrijk."},
+      {t:"Gratis",d:"Amazon betaalt ons een commissie. U betaalt niets."}
+    ],
+    faqH:"Veelgestelde vragen",
+    faq:[
+      {q:"Is het legaal om te kopen op de Amazon van een ander land?",a:"Ja. Binnen de Europese Unie is kopen op de Amazon van een ander lidland volkomen legaal, zonder douanerechten of invoerkosten."},
+      {q:"Zijn btw en verzending inbegrepen in de prijs?",a:"De getoonde prijs bevat de btw van het land van aankoop. De verzendkosten verschijnen bij het afrekenen, rechtstreeks op Amazon."},
+      {q:"Betaal ik douanekosten?",a:"Niet tussen landen van de Europese Unie. Het Verenigd Koninkrijk ligt buiten de EU, dus een aankoop op Amazon UK kan invoerkosten met zich meebrengen."},
+      {q:"Hoe verdient Kompalo geld?",a:"Amazon betaalt ons een affiliatiecommissie op in aanmerking komende aankopen. De dienst blijft gratis en de resultaten worden op prijs gerangschikt, nooit op commissie."},
+      {q:"Welke landen vergelijken jullie?",a:"Acht: Duitsland, Frankrijk, Italië, Spanje, Nederland, Zweden, Polen en het Verenigd Koninkrijk."}
+    ]
+  },
+  sv: {
+    badges:["Sorterat efter pris, inte provision","Utan annonser","Moms ingår","Gratis"],
+    howH:"Så fungerar det",
+    how:[
+      {t:"Sök en produkt",d:"Ett produktnamn eller en Amazon-länk, från vilket land som helst."},
+      {t:"Vi jämför 8 länder",d:"De europeiska Amazon-marknadsplatserna, kontrollerade åt dig."},
+      {t:"Se bästa priset",d:"Det billigaste landet, moms ingår, med en blick."}
+    ],
+    whyH:"Varför Kompalo",
+    why:[
+      {t:"Sorterat efter pris, aldrig efter provision",d:"Det billigaste visas först. Alltid."},
+      {t:"Inga annonser, ingen datahandel",d:"Ingen reklam, och dina sökningar säljs aldrig."},
+      {t:"Moms ingår",d:"Priset som visas inkluderar landets moms. Frakten visas i kassan hos Amazon."},
+      {t:"Ingen tull inom EU",d:"Att köpa på ett annat EU-lands Amazon är lagligt och utan tullavgifter."},
+      {t:"8 europeiska marknadsplatser",d:"Tyskland, Frankrike, Italien, Spanien, Nederländerna, Sverige, Polen, Storbritannien."},
+      {t:"Gratis",d:"Amazon betalar oss en provision. Du betalar ingenting."}
+    ],
+    faqH:"Vanliga frågor",
+    faq:[
+      {q:"Är det lagligt att köpa på ett annat lands Amazon?",a:"Ja. Inom Europeiska unionen är det fullt lagligt att köpa på ett annat medlemslands Amazon, utan tull eller importavgifter."},
+      {q:"Ingår moms och frakt i priset?",a:"Priset som visas inkluderar momsen i köplandet. Fraktkostnaderna visas i kassan, direkt hos Amazon."},
+      {q:"Betalar jag tullavgifter?",a:"Inte mellan länder inom Europeiska unionen. Storbritannien ligger utanför EU, så ett köp på Amazon UK kan medföra importavgifter."},
+      {q:"Hur tjänar Kompalo pengar?",a:"Amazon betalar oss en affiliateprovision på kvalificerande köp. Tjänsten förblir gratis och resultaten sorteras efter pris, aldrig efter provision."},
+      {q:"Vilka länder jämför ni?",a:"Åtta: Tyskland, Frankrike, Italien, Spanien, Nederländerna, Sverige, Polen och Storbritannien."}
+    ]
+  },
+  pl: {
+    badges:["Sortowane według ceny, nie prowizji","Bez reklam","Z VAT","Za darmo"],
+    howH:"Jak to działa",
+    how:[
+      {t:"Wyszukaj produkt",d:"Nazwa produktu lub link Amazon, z dowolnego kraju."},
+      {t:"Porównujemy 8 krajów",d:"Europejskie platformy Amazon, sprawdzone za Ciebie."},
+      {t:"Zobacz najlepszą cenę",d:"Najtańszy kraj, z VAT, w mgnieniu oka."}
+    ],
+    whyH:"Dlaczego Kompalo",
+    why:[
+      {t:"Sortowane według ceny, nigdy prowizji",d:"Najtańsza oferta zawsze na górze."},
+      {t:"Bez reklam, bez odsprzedaży danych",d:"Żadnych reklam, a Twoje wyszukiwania nigdy nie są sprzedawane."},
+      {t:"Z VAT",d:"Wyświetlana cena zawiera VAT danego kraju. Koszt dostawy pojawia się przy płatności w Amazon."},
+      {t:"Brak cła w UE",d:"Zakupy w Amazon innego kraju UE są legalne i bez cła."},
+      {t:"8 europejskich platform",d:"Niemcy, Francja, Włochy, Hiszpania, Holandia, Szwecja, Polska, Wielka Brytania."},
+      {t:"Za darmo",d:"Amazon płaci nam prowizję. Ty nie płacisz nic."}
+    ],
+    faqH:"Częste pytania",
+    faq:[
+      {q:"Czy zakup w Amazon innego kraju jest legalny?",a:"Tak. W obrębie Unii Europejskiej zakup w Amazon innego kraju członkowskiego jest w pełni legalny, bez cła ani opłat importowych."},
+      {q:"Czy cena zawiera VAT i dostawę?",a:"Wyświetlana cena zawiera VAT kraju zakupu. Koszt dostawy pojawia się przy płatności, bezpośrednio w Amazon."},
+      {q:"Czy zapłacę cło?",a:"Nie między krajami Unii Europejskiej. Wielka Brytania jest poza UE, więc zakup w Amazon UK może wiązać się z opłatami importowymi."},
+      {q:"Jak Kompalo zarabia?",a:"Amazon płaci nam prowizję afiliacyjną od kwalifikujących się zakupów. Usługa pozostaje darmowa, a wyniki są sortowane według ceny, nigdy według prowizji."},
+      {q:"Jakie kraje porównujecie?",a:"Osiem: Niemcy, Francja, Włochy, Hiszpania, Holandia, Szwecja, Polska i Wielka Brytania."}
+    ]
+  }
+};
+
+function observeReveals(){
+  const els=document.querySelectorAll('.reveal:not(.in)');
+  if(REDUCED_MOTION||!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('in'));return;}
+  const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1,rootMargin:'0px 0px -6% 0px'});
+  els.forEach(e=>io.observe(e));
+}
+function renderTrust(){
+  const T=TRUSTC[state.lang]||TRUSTC.en;const ts=$("#trustSection");if(!ts)return;
+  const bd=$("#trustBadges");if(bd)bd.innerHTML=T.badges.map(b=>`<span class="tbadge">${b}</span>`).join("");
+  $("#howH").textContent=T.howH;
+  $("#howSteps").innerHTML=T.how.map((s,i)=>`<div class="step"><span class="sn">0${i+1}</span><h4>${s.t}</h4><p>${s.d}</p></div>`).join("");
+  $("#whyH").textContent=T.whyH;
+  $("#whyGrid").innerHTML=T.why.map(w=>`<div class="wcell"><h4>${w.t}</h4><p>${w.d}</p></div>`).join("");
+  $("#faqH").textContent=T.faqH;
+  $("#faqList").innerHTML=T.faq.map(f=>`<details class="faq-item"><summary>${f.q}</summary><div class="faq-a">${f.a}</div></details>`).join("");
+  observeReveals();
+}
+
 async function api(path,ms=12000){const c=new AbortController();const tm=setTimeout(()=>c.abort(),ms);
   try{const r=await fetch(API_BASE+path,{signal:c.signal});if(!r.ok)throw new Error("HTTP "+r.status);return await r.json();}finally{clearTimeout(tm);}}
 function toast(m){const el=$("#toast");el.textContent=m;el.classList.add("show");setTimeout(()=>el.classList.remove("show"),2200);}
@@ -572,7 +843,7 @@ function applyTheme(theme){
   try{localStorage.setItem('ep_theme',state.theme);}catch{}
 }
 function toggleTheme(){applyTheme(state.theme==='dark'?'light':'dark');}
-function applyLanguage(lang){state.lang=lang;applyStatic();updateAuthUI();
+function applyLanguage(lang){state.lang=lang;applyStatic();updateAuthUI();renderTrust();
   // section title
   if(state.view==="fav")$("#resultsTitle").textContent=t("sec_fav");
   refreshMeta();
@@ -652,8 +923,8 @@ $("#logoBtn").addEventListener("click",showHome);
 $("#navSearch").addEventListener("click",()=>{showHome();$("#q").focus();});
 $("#navFav").addEventListener("click",showFav);
 function setActive(which){$("#navSearch").classList.toggle("active",which==="search");$("#navFav").classList.toggle("active",which==="fav");}
-function showHome(){state.view="home";setActive("search");$("#bestSection").style.display="";$("#resultsSection").style.display="none";window.scrollTo({top:0,behavior:"smooth"});if(!state.popularLoaded)loadPopular();try{history.replaceState(null,"",location.pathname);}catch{}}
-function showResults(){$("#bestSection").style.display="none";$("#resultsSection").style.display="";}
+function showHome(){state.view="home";setActive("search");$("#bestSection").style.display="";$("#trustSection").style.display="";$("#resultsSection").style.display="none";window.scrollTo({top:0,behavior:"smooth"});if(!state.popularLoaded)loadPopular();try{history.replaceState(null,"",location.pathname);}catch{}}
+function showResults(){$("#bestSection").style.display="none";$("#trustSection").style.display="none";$("#resultsSection").style.display="";}
 function doSearch(q){if(!q)return;state.view="search";setActive("search");showResults();$("#resultsTitle").textContent="« "+q+" »";loadProducts([q]);
   try{history.replaceState(null,"",location.pathname+"?q="+encodeURIComponent(q));}catch{}}
 function showFav(){state.view="fav";setActive("fav");showResults();$("#resultsTitle").textContent=t("sec_fav");
@@ -872,7 +1143,7 @@ function injectJsonLd(){
   if(window.__LANG__ && LANG_ORDER.includes(window.__LANG__)) state.lang=window.__LANG__;
   let savedTheme='light';try{savedTheme=localStorage.getItem('ep_theme')||'light';}catch{}
   applyTheme(savedTheme);
-  applyStatic();updateAuthUI();injectJsonLd();
+  applyStatic();updateAuthUI();injectJsonLd();renderTrust();
   try{const h=await api("/api/health/live",6000);DEMO_BANNER=(h&&h.paapiMode==="mock");}catch{USING_SAMPLE=true;}
   refreshDemoNote();
   await loadFx();
